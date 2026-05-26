@@ -1145,6 +1145,20 @@ body.legal-page .lang-toggle a.lang-active {
   margin-top: 12px;
 }
 
+/* Live-Counter unter dem Warteliste-Formular */
+.waitlist-count {
+  margin: 18px 0 0;
+  font-size: 0.93rem;
+  color: var(--c-muted);
+  text-align: center;
+}
+
+.waitlist-count strong {
+  color: var(--c-accent);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
 /* ---------- Footer (dunkel) ---------- */
 
 .site-footer {

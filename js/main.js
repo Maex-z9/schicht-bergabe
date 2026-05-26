@@ -24,6 +24,50 @@
     yearEl.textContent = String(new Date().getFullYear());
   }
 
+  // -------- Wartelisten-Zähler (abacus.jasoncameron.dev) --------
+  // Anonymer, kostenloser Counter. Beim Seitenaufruf lesen wir den
+  // aktuellen Stand via GET (ohne zu inkrementieren), nach einer
+  // erfolgreichen FormSubmit-Anmeldung wird via /hit bumpt.
+  // Hinweis: der Endpoint ist öffentlich, theoretisch manipulierbar.
+  // Für eine Pre-Launch-Liste akzeptabel; sobald wir echtes Backend
+  // haben, wird das hier ersetzt.
+  var COUNTER_BASE = "https://abacus.jasoncameron.dev";
+  var COUNTER_NS = "schicht-bergabe";
+  var COUNTER_KEY = "waitlist";
+  var countEl = document.getElementById("waitlist-count");
+  var isEn =
+    (document.documentElement.lang || "de").toLowerCase().indexOf("en") === 0;
+
+  function renderCount(n) {
+    if (!countEl || typeof n !== "number" || n < 1) return;
+    var label = isEn
+      ? n === 1
+        ? "workshop on the list"
+        : "workshops on the list"
+      : n === 1
+      ? "Werkstatt auf der Liste"
+      : "Werkstätten auf der Liste";
+    countEl.innerHTML = "<strong>" + n + "</strong> " + label;
+    countEl.hidden = false;
+  }
+
+  function fetchCounter(path) {
+    return fetch(COUNTER_BASE + path)
+      .then(function (r) {
+        return r.ok ? r.json() : null;
+      })
+      .then(function (data) {
+        if (data && typeof data.value === "number") renderCount(data.value);
+      })
+      .catch(function () {
+        /* schweigend — wenn der Dienst down ist, bleibt die Zeile weg */
+      });
+  }
+
+  if (countEl) {
+    fetchCounter("/get/" + COUNTER_NS + "/" + COUNTER_KEY);
+  }
+
   // Reveal-on-scroll. Wir markieren die typischen Hauptblöcke (Karten,
   // Section-Heads, Hero-Visual, Pricing-/Waitlist-Karte) und blenden sie
   // beim Eintritt in den Viewport sanft ein. Wenn IntersectionObserver
@@ -98,6 +142,8 @@
       successEl.hidden = false;
     }
     form.hidden = true;
+    // Echten Counter bumpen — nur nach bestätigter FormSubmit-Antwort.
+    fetchCounter("/hit/" + COUNTER_NS + "/" + COUNTER_KEY);
   }
 
   form.addEventListener("submit", function (e) {

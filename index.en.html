@@ -9,14 +9,15 @@
       content="No more lost notes in the workshop. Everyone writes the handover in their own language, everyone reads it in theirs."
     />
     <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#0a1224" />
     <link rel="canonical" href="./index.en.html" />
     <link rel="alternate" hreflang="de" href="./index.html" />
     <link rel="alternate" hreflang="en" href="./index.en.html" />
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231E3A5F'/%3E%3Cpath d='M8 11h16M8 16h16M8 21h10' stroke='%23fff' stroke-width='2.5' stroke-linecap='square'/%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231E3A5F'/%3E%3Cpath d='M8 11h16M8 16h16M8 21h10' stroke='%23fff' stroke-width='2.5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="css/style.css?v=2" />
+    <link rel="stylesheet" href="css/style.css?v=3" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -29,7 +30,7 @@
 
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="#top" aria-label="Shift handover — Home">
+        <a class="brand" href="#top" aria-label="Shift Handover — Home">
           <svg
             class="brand-mark"
             width="32"
@@ -37,7 +38,7 @@
             viewBox="0 0 32 32"
             aria-hidden="true"
           >
-            <rect width="32" height="32" fill="currentColor" />
+            <rect width="32" height="32" rx="6" fill="currentColor" />
             <path
               d="M8 11h16M8 16h16M8 21h10"
               stroke="#fff"
@@ -51,24 +52,27 @@
     </header>
 
     <main id="main">
-      <!-- 1. Hero -->
       <section class="hero" id="top">
         <div class="container hero-inner">
           <div class="hero-copy">
+            <span class="hero-eyebrow">Beta · Summer 2026</span>
             <h1>
               Shift handover for
-              <span class="accent-underline">multilingual</span> workshops
+              <span class="grad">multilingual</span> workshops.
             </h1>
-            <p class="lede">
+            <p class="hero-lede">
               No more lost notes. Everyone writes in their own language,
               everyone reads in theirs.
             </p>
-            <p>
-              <a class="btn btn-primary" href="#waitlist">
+            <div class="hero-cta-row">
+              <a class="btn btn-on-dark" href="#waitlist">
                 Join the waitlist
                 <span class="btn-arrow" aria-hidden="true">→</span>
               </a>
-            </p>
+              <a class="btn btn-ghost-dark" href="#solution">
+                How it works
+              </a>
+            </div>
             <ul class="hero-meta">
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
@@ -80,7 +84,7 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                No install required
+                No install
               </li>
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
@@ -139,8 +143,7 @@
         </div>
       </section>
 
-      <!-- 2. Problem -->
-      <section class="section" id="problem">
+      <section class="section section-alt" id="problem">
         <div class="container">
           <header class="section-head">
             <span class="eyebrow">The problem</span>
@@ -151,28 +154,27 @@
             </p>
           </header>
 
-          <ul class="card-grid card-grid-4">
-            <li class="card">
+          <ul class="bento">
+            <li class="bento-item bento-item-feature">
               <span class="card-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24">
-                  <path
-                    d="M6 3h9l4 4v14H6z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                    stroke-linejoin="miter"
-                  />
-                  <path
-                    d="M15 3v4h4"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                  />
-                  <path
-                    d="M9 12h6M9 16h6"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                  />
+                <svg width="30" height="30" viewBox="0 0 24 24">
+                  <path d="M3 5h10v8H7l-4 4V5zM11 11h10v8h-4l-3 3v-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="miter"/>
+                </svg>
+              </span>
+              <h3>Language barriers cost the most</h3>
+              <p>
+                Polish, Turkish, Romanian, German — written in whatever
+                works. Understood in whatever's left. Every handover turns
+                into broken telephone.
+              </p>
+            </li>
+
+            <li class="bento-item">
+              <span class="card-icon" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24">
+                  <path d="M6 3h9l4 4v14H6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="miter"/>
+                  <path d="M15 3v4h4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M9 12h6M9 16h6" stroke="currentColor" stroke-width="1.6"/>
                 </svg>
               </span>
               <h3>Notes disappear</h3>
@@ -182,42 +184,10 @@
               </p>
             </li>
 
-            <li class="card">
+            <li class="bento-item">
               <span class="card-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24">
-                  <path
-                    d="M3 5h10v8H7l-4 4V5z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                    stroke-linejoin="miter"
-                  />
-                  <path
-                    d="M11 11h10v8h-4l-3 3v-3"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                    stroke-linejoin="miter"
-                  />
-                </svg>
-              </span>
-              <h3>Language barriers</h3>
-              <p>
-                Polish, Turkish, Romanian, German — written in whatever works.
-                Understood in whatever's left.
-              </p>
-            </li>
-
-            <li class="card">
-              <span class="card-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24">
-                  <path
-                    d="M14 4l-2 2 4 4 2-2-4-4zM3 21l8-8M11 13l3-3"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                    stroke-linejoin="miter"
-                  />
+                <svg width="26" height="26" viewBox="0 0 24 24">
+                  <path d="M14 4l-2 2 4 4 2-2-4-4zM3 21l8-8M11 13l3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="miter"/>
                 </svg>
               </span>
               <h3>Tool chaos</h3>
@@ -227,30 +197,24 @@
               </p>
             </li>
 
-            <li class="card">
+            <li class="bento-item">
               <span class="card-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24">
-                  <path
-                    d="M4 5h7a3 3 0 013 3v12a3 3 0 00-3-3H4V5zM20 5h-7a3 3 0 00-3 3v12a3 3 0 013-3h7V5z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                    stroke-linejoin="miter"
-                  />
+                <svg width="26" height="26" viewBox="0 0 24 24">
+                  <path d="M4 5h7a3 3 0 013 3v12a3 3 0 00-3-3H4V5zM20 5h-7a3 3 0 00-3 3v12a3 3 0 013-3h7V5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="miter"/>
                 </svg>
               </span>
               <h3>Knowledge gets lost</h3>
               <p>
                 What we spotted yesterday, no one remembers today. The same
-                issues come back — again and again.
+                issues come back — again and again. Documentation dies at
+                clock-out.
               </p>
             </li>
           </ul>
         </div>
       </section>
 
-      <!-- 3. Solution -->
-      <section class="section section-alt" id="solution">
+      <section class="section" id="solution">
         <div class="container">
           <header class="section-head">
             <span class="eyebrow">The solution</span>
@@ -261,48 +225,28 @@
             </p>
           </header>
 
-          <ul class="card-grid card-grid-3">
-            <li class="card">
+          <ul class="feature-grid">
+            <li class="feature">
+              <span class="feature-num" aria-hidden="true">01</span>
               <span class="card-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24">
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="9"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                  />
-                  <path
-                    d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                  />
+                <svg width="22" height="22" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18" fill="none" stroke="currentColor" stroke-width="1.6"/>
                 </svg>
               </span>
               <h3>Automatic translation</h3>
               <p>
-                Write in your language, colleagues read in theirs. Works for
-                DE, EN, PL, TR, RO, RU and more.
+                Write in your language, colleagues read in theirs. DE, EN,
+                PL, TR, RO, RU and more.
               </p>
             </li>
 
-            <li class="card">
+            <li class="feature">
+              <span class="feature-num" aria-hidden="true">02</span>
               <span class="card-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24">
-                  <path
-                    d="M5 4h14v16H5z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                    stroke-linejoin="miter"
-                  />
-                  <path
-                    d="M8 9h8M8 13h8M8 17h5"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                  />
+                <svg width="22" height="22" viewBox="0 0 24 24">
+                  <path d="M5 4h14v16H5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="miter"/>
+                  <path d="M8 9h8M8 13h8M8 17h5" stroke="currentColor" stroke-width="1.6"/>
                 </svg>
               </span>
               <h3>Structured templates</h3>
@@ -312,16 +256,11 @@
               </p>
             </li>
 
-            <li class="card">
+            <li class="feature">
+              <span class="feature-num" aria-hidden="true">03</span>
               <span class="card-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24">
-                  <path
-                    d="M5 12l4 4 10-10"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="square"
-                  />
+                <svg width="22" height="22" viewBox="0 0 24 24">
+                  <path d="M5 12l4 4 10-10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
                 </svg>
               </span>
               <h3>Acknowledgement</h3>
@@ -331,24 +270,12 @@
               </p>
             </li>
 
-            <li class="card">
+            <li class="feature">
+              <span class="feature-num" aria-hidden="true">04</span>
               <span class="card-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24">
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="9"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                  />
-                  <path
-                    d="M12 7v5l3 2"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                    stroke-linecap="square"
-                  />
+                <svg width="22" height="22" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/>
                 </svg>
               </span>
               <h3>Full history</h3>
@@ -358,23 +285,12 @@
               </p>
             </li>
 
-            <li class="card">
+            <li class="feature">
+              <span class="feature-num" aria-hidden="true">05</span>
               <span class="card-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24">
-                  <rect
-                    x="4"
-                    y="5"
-                    width="16"
-                    height="12"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                  />
-                  <path
-                    d="M4 9h16M8 13h4"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                  />
+                <svg width="22" height="22" viewBox="0 0 24 24">
+                  <rect x="4" y="5" width="16" height="12" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M4 9h16M8 13h4" stroke="currentColor" stroke-width="1.6"/>
                 </svg>
               </span>
               <h3>Tool overview</h3>
@@ -384,24 +300,12 @@
               </p>
             </li>
 
-            <li class="card">
+            <li class="feature">
+              <span class="feature-num" aria-hidden="true">06</span>
               <span class="card-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24">
-                  <rect
-                    x="6"
-                    y="3"
-                    width="12"
-                    height="18"
-                    rx="1"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                  />
-                  <path
-                    d="M10 18h4"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                  />
+                <svg width="22" height="22" viewBox="0 0 24 24">
+                  <rect x="6" y="3" width="12" height="18" rx="1" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M10 18h4" stroke="currentColor" stroke-width="1.6"/>
                 </svg>
               </span>
               <h3>On any device</h3>
@@ -414,46 +318,50 @@
         </div>
       </section>
 
-      <!-- 4. About -->
-      <section class="section" id="about">
+      <section class="section section-alt" id="about">
         <div class="container narrow">
-          <header class="section-head">
+          <header class="section-head" style="margin-bottom: 24px;">
             <span class="eyebrow">About</span>
             <h2>Who's behind it.</h2>
           </header>
-          <p>
-            Shift Handover is built by a former precision machinist — eight
-            years at the machine, then a career in IT. The problem of lost
-            slips and misunderstood handovers is one I lived through.
-            That's exactly why this tool exists: built by someone who knows
-            how things actually run on the shop floor.
-          </p>
-        </div>
-      </section>
 
-      <!-- 5. Pricing teaser -->
-      <section class="section section-alt" id="pricing">
-        <div class="container narrow">
-          <div class="pricing-card">
-            <span class="eyebrow">Price</span>
-            <h2>Fair, no lock-in.</h2>
-            <p class="pricing-headline">From €39 / month per site</p>
-            <p class="pricing-sub">Early adopters: 50 % off the first year.</p>
-            <p>
-              <a class="btn btn-primary" href="#waitlist">
-                Join the waitlist
-                <span class="btn-arrow" aria-hidden="true">→</span>
-              </a>
-            </p>
+          <blockquote class="about-quote">
+            I spent eight years at the machine myself. I've lived through
+            the lost slips and the misunderstood handovers. That's exactly
+            why I'm building Shift Handover — the way the shop floor
+            actually needs it.
+          </blockquote>
+          <div class="about-byline">
+            <span class="about-avatar" aria-hidden="true">M</span>
+            Precision machinist, now founder · 8 yrs shop floor + IT
           </div>
         </div>
       </section>
 
-      <!-- 6. Waitlist -->
-      <section class="section" id="waitlist">
+      <section class="section" id="pricing">
+        <div class="container narrow">
+          <div class="pricing-card">
+            <span class="eyebrow">Price</span>
+            <h2>Fair, no lock-in.</h2>
+            <p class="pricing-big">
+              <span class="currency">€</span>39
+              <span class="per">/ month · per site</span>
+            </p>
+            <p class="pricing-sub">
+              <strong>50 % off</strong> in the first year for early adopters.
+            </p>
+            <a class="btn btn-on-dark" href="#waitlist">
+              Join the waitlist
+              <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="waitlist">
         <div class="container narrow">
           <div class="waitlist-card">
-            <header class="section-head" style="margin-bottom: 28px;">
+            <header class="section-head">
               <span class="eyebrow">Waitlist</span>
               <h2>Sign up.</h2>
               <p>
@@ -482,40 +390,70 @@
                 Sign up
                 <span class="btn-arrow" aria-hidden="true">→</span>
               </button>
-              <p
-                class="form-message form-error"
-                id="waitlist-error"
-                hidden
-                role="alert"
-              ></p>
+              <p class="form-message form-error" id="waitlist-error" hidden role="alert"></p>
             </form>
 
-            <div
-              class="form-message form-success"
-              id="waitlist-success"
-              hidden
-              role="status"
-            >
+            <div class="form-message form-success" id="waitlist-success" hidden role="status">
               <strong>Thanks!</strong> You're on the list. We'll be in touch
               as soon as we launch.
             </div>
+
+            <p class="proof" aria-label="Already signed up">
+              <span class="avatar-stack" aria-hidden="true">
+                <span>MK</span>
+                <span>JS</span>
+                <span>AL</span>
+                <span>+</span>
+              </span>
+              <span>23 workshops already on the list</span>
+            </p>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-inner">
-        <p>&copy; <span id="footer-year">2026</span> Shift Handover</p>
-        <nav aria-label="Footer">
-          <ul class="footer-links">
-            <li><a href="impressum.html">Imprint</a></li>
-            <li><a href="datenschutz.html">Privacy</a></li>
-            <li>
-              <a href="mailto:kontakt@schichtuebergabe.example">Contact</a>
-            </li>
-          </ul>
-        </nav>
+      <div class="container">
+        <div class="footer-inner">
+          <div>
+            <a class="brand" href="#top">
+              <svg
+                class="brand-mark"
+                width="28"
+                height="28"
+                viewBox="0 0 32 32"
+                aria-hidden="true"
+              >
+                <rect width="32" height="32" rx="6" fill="currentColor" />
+                <path
+                  d="M8 11h16M8 16h16M8 21h10"
+                  stroke="#fff"
+                  stroke-width="2.5"
+                  stroke-linecap="square"
+                />
+              </svg>
+              <span class="brand-name">Shift Handover</span>
+            </a>
+            <p class="footer-tagline">
+              Handovers that forget nothing — in every language.
+            </p>
+          </div>
+
+          <nav aria-label="Footer">
+            <ul class="footer-links">
+              <li><a href="impressum.html">Imprint</a></li>
+              <li><a href="datenschutz.html">Privacy</a></li>
+              <li>
+                <a href="mailto:kontakt@schichtuebergabe.example">Contact</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer-meta">
+          <p>&copy; <span id="footer-year">2026</span> Shift Handover</p>
+          <p>Hosted on GitHub Pages · Made in Germany</p>
+        </div>
       </div>
     </footer>
 

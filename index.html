@@ -409,18 +409,28 @@
             </header>
 
             <!--
-              Formspree-Endpoint als Platzhalter. Vor Deploy ersetzen
-              (siehe README.md). Solange "FORMSPREE_URL_HIER" drinsteht,
-              zeigt main.js eine sprechende Fehlermeldung statt einen
-              kaputten POST abzusetzen.
+              FormSubmit-Endpoint: Anmeldungen gehen an saaslyde@zohomail.eu.
+              Erste Übermittlung triggert eine einmalige Bestätigungs-Mail
+              an die Zieladresse — nach Klick auf den Bestätigungslink
+              werden alle weiteren Submissions still in die Mailbox
+              geliefert (kein Account nötig).
+              Wer die Mail-Adresse aus dem HTML raushalten will, kann
+              nach der Verifizierung die gehashte Alias-URL nutzen, die
+              FormSubmit zurückgibt, und sie hier ersetzen.
             -->
             <form
               id="waitlist-form"
               class="waitlist-form"
-              action="FORMSPREE_URL_HIER"
+              action="https://formsubmit.co/ajax/saaslyde@zohomail.eu"
               method="post"
               novalidate
             >
+              <input type="hidden" name="_subject" value="Neue Warteliste-Anmeldung — Schichtübergabe" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              <!-- Honeypot gegen Bots; echte Nutzer füllen es nicht aus -->
+              <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
+
               <label for="email" class="sr-only">E-Mail-Adresse</label>
               <input
                 id="email"

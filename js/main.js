@@ -2,18 +2,17 @@
   Schichtübergabe — main.js
   -------------------------
   Macht zwei Dinge:
-  1. Footer-Jahr dynamisch setzen, damit das Copyright nicht veraltet.
-  2. Warteliste-Formular per fetch an Formspree absenden, Erfolg/Fehler
+  1. Footer-Jahr dynamisch setzen.
+  2. Warteliste-Formular per fetch an FormSubmit absenden, Erfolg/Fehler
      inline anzeigen (kein Redirect).
 
   Der Sprach-Toggle ist reines HTML (Link auf index.en.html) und braucht
   hier kein JS — die Spec verlangt das explizit so.
 
-  Annahme: Der Formspree-Endpoint wird vor dem Deploy von Hand im
-  data-action / action-Attribut ersetzt. Solange der Platzhalter
-  "FORMSPREE_URL_HIER" drinsteht, schicken wir keinen Request raus
-  und zeigen stattdessen eine sprechende Fehlermeldung — verhindert
-  einen kaputten POST-Versuch in der Entwicklung.
+  FormSubmit antwortet auf den /ajax/-Endpoint mit JSON in der Form
+  `{ success: "true", message: "..." }`. Bei Validierungsfehlern oder
+  noch nicht bestätigter Empfänger-Adresse kommt `success: "false"` mit
+  einer Fehlermeldung.
 */
 
 (function () {
@@ -75,14 +74,10 @@
     lang.indexOf("en") === 0
       ? {
           invalid: "Please enter a valid email address.",
-          placeholder:
-            "The form isn't configured yet. Please email us directly.",
           network: "Something went wrong. Please try again.",
         }
       : {
           invalid: "Bitte eine gültige E-Mail-Adresse eingeben.",
-          placeholder:
-            "Das Formular ist noch nicht konfiguriert. Bitte direkt per E-Mail melden.",
           network: "Etwas ist schiefgelaufen. Bitte erneut versuchen.",
         };
 
@@ -120,11 +115,6 @@
     }
 
     var endpoint = form.getAttribute("action");
-    if (!endpoint || endpoint.indexOf("FORMSPREE_URL_HIER") !== -1) {
-      showError(msgs.placeholder);
-      return;
-    }
-
     var submitBtn = form.querySelector('button[type="submit"]');
     if (submitBtn) submitBtn.disabled = true;
 
@@ -136,29 +126,24 @@
       headers: { Accept: "application/json" },
     })
       .then(function (resp) {
-        if (resp.ok) {
-          showSuccess();
-        } else {
-          // Formspree liefert bei Validierungsfehlern JSON mit "errors".
-          return resp
-            .json()
-            .catch(function () {
-              return null;
-            })
-            .then(function (json) {
-              var msg = msgs.network;
-              if (json && json.errors && json.errors.length) {
-                msg = json.errors
-                  .map(function (err) {
-                    return err.message || "";
-                  })
-                  .filter(Boolean)
-                  .join(" ");
-              }
-              showError(msg || msgs.network);
-              if (submitBtn) submitBtn.disabled = false;
-            });
-        }
+        return resp
+          .json()
+          .catch(function () {
+            return null;
+          })
+          .then(function (json) {
+            // FormSubmit signalisiert Erfolg über HTTP 200 + success:"true".
+            // String, nicht Bool — daher loose check.
+            var ok = resp.ok && (!json || json.success !== "false");
+            if (ok) {
+              showSuccess();
+              return;
+            }
+            var msg =
+              (json && (json.message || json.error)) || msgs.network;
+            showError(msg);
+            if (submitBtn) submitBtn.disabled = false;
+          });
       })
       .catch(function () {
         showError(msgs.network);

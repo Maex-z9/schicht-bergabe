@@ -10,7 +10,7 @@ Abhängigkeiten, kein Build-Step, direkt GitHub-Pages-ready.
 index.html         Deutsche Hauptseite
 index.en.html      Englische Version (gleiche Struktur)
 impressum.html     Impressum mit TODO-Platzhaltern
-datenschutz.html   Datenschutz (DSGVO, inkl. Formspree-Hinweis)
+datenschutz.html   Datenschutz (DSGVO, inkl. FormSubmit-Hinweis)
 css/style.css      Stylesheet
 js/main.js         Sprach-Toggle (HTML-Link) + Form-Handling
 assets/            Bilder/Icons (aktuell leer)
@@ -18,21 +18,27 @@ assets/            Bilder/Icons (aktuell leer)
 
 ## Setup
 
-### 1. Formspree-URL einsetzen
+### 1. Formular-Empfänger einrichten (FormSubmit)
 
-Auf [formspree.io](https://formspree.io) ein neues Formular anlegen
-und die Endpoint-URL (z. B. `https://formspree.io/f/abcdwxyz`) kopieren.
+Das Warteliste-Formular schickt Anmeldungen über
+[FormSubmit](https://formsubmit.co) an
+`saaslyde@zohomail.eu`. Kein Account nötig — beim ersten Submit nach
+dem Go-Live kommt einmalig eine Bestätigungs-Mail von FormSubmit an
+diese Adresse. Den Link in der Mail klicken, danach laufen alle
+Anmeldungen still in die Inbox.
 
-Anschließend in **beiden** HTML-Dateien den Platzhalter ersetzen:
+Wenn die Empfänger-Adresse geändert wird: in `index.html` und
+`index.en.html` jeweils im `<form action="...">` ersetzen. Beispiel:
 
 ```bash
-# Linux/macOS
-sed -i 's|FORMSPREE_URL_HIER|https://formspree.io/f/DEIN_ID|g' \
+sed -i 's|saaslyde@zohomail.eu|neue@adresse.example|g' \
     index.html index.en.html
 ```
 
-Alternativ den String `FORMSPREE_URL_HIER` per Editor in `index.html`
-und `index.en.html` durch die echte URL ersetzen.
+**Optional:** Nach der Verifizierung bietet FormSubmit eine gehashte
+Alias-URL der Form `https://formsubmit.co/el/abcdef` an. Diese statt
+der Klartext-E-Mail einsetzen, damit die Adresse nicht im öffentlichen
+HTML steht.
 
 ### 2. Kontakt-E-Mail anpassen
 
@@ -68,7 +74,7 @@ python3 -m http.server 8000
 - **Keine** Cookies, **kein** Tracking, **keine** Analyse-Tools —
   daher auch kein Cookie-Banner.
 - **Keine** externen Schriften, Skripte oder CDN-Requests.
-- Wartelisten-Formular geht an Formspree (Auftragsverarbeiter,
+- Wartelisten-Formular geht an FormSubmit (Auftragsverarbeiter,
   in der Datenschutzerklärung erwähnt).
 
 ## Lighthouse

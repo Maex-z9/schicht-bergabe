@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Schichtübergabe für mehrsprachige Werkstätten</title>
+    <title>Shift handover for multilingual workshops</title>
     <meta
       name="description"
-      content="Schluss mit Zettelwirtschaft in der Werkstatt. Jeder schreibt die Übergabe in seiner Sprache, jeder liest sie in seiner."
+      content="No more lost notes in the workshop. Everyone writes the handover in their own language, everyone reads it in theirs."
     />
     <meta name="robots" content="index,follow" />
-    <link rel="canonical" href="./index.html" />
+    <link rel="canonical" href="./index.en.html" />
     <link rel="alternate" hreflang="de" href="./index.html" />
     <link rel="alternate" hreflang="en" href="./index.en.html" />
     <link
@@ -19,23 +19,17 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <a class="skip-link" href="#main">Zum Inhalt springen</a>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <!--
-      Sprach-Toggle: Spec verlangt fixed oben rechts, Buttons "DE | EN".
-      Wir nutzen <a>-Elemente statt <button>, weil der Wechsel ein
-      einfacher Seitenlink ist (kein JS-i18n) – semantisch korrekter,
-      funktioniert auch ohne JS.
-    -->
-    <div class="lang-toggle" role="navigation" aria-label="Sprache">
-      <a href="index.html" aria-current="page" class="lang-active">DE</a>
+    <div class="lang-toggle" role="navigation" aria-label="Language">
+      <a href="index.html">DE</a>
       <span aria-hidden="true">|</span>
-      <a href="index.en.html">EN</a>
+      <a href="index.en.html" aria-current="page" class="lang-active">EN</a>
     </div>
 
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="#top" aria-label="Schichtübergabe — Startseite">
+        <a class="brand" href="#top" aria-label="Shift handover — Home">
           <svg
             class="brand-mark"
             width="32"
@@ -51,7 +45,7 @@
               stroke-linecap="square"
             />
           </svg>
-          <span class="brand-name">Schichtübergabe</span>
+          <span class="brand-name">Shift Handover</span>
         </a>
       </div>
     </header>
@@ -60,15 +54,13 @@
       <!-- 1. Hero -->
       <section class="hero" id="top">
         <div class="container hero-inner">
-          <h1>Schichtübergabe für mehrsprachige Werkstätten</h1>
+          <h1>Shift handover for multilingual workshops</h1>
           <p class="lede">
-            Schluss mit Zettelwirtschaft. Jeder schreibt in seiner Sprache,
-            jeder liest in seiner.
+            No more lost notes. Everyone writes in their own language,
+            everyone reads in theirs.
           </p>
           <p>
-            <a class="btn btn-primary" href="#warteliste">
-              Auf die Warteliste
-            </a>
+            <a class="btn btn-primary" href="#waitlist">Join the waitlist</a>
           </p>
         </div>
       </section>
@@ -77,17 +69,16 @@
       <section class="section" id="problem">
         <div class="container">
           <header class="section-head">
-            <h2>Das Problem</h2>
+            <h2>The problem</h2>
             <p>
-              Was am Schichtwechsel jeden Tag schiefgeht — und Zeit, Material
-              und Nerven kostet.
+              What goes wrong at every shift change — costing time, material
+              and nerves.
             </p>
           </header>
 
           <ul class="card-grid card-grid-4">
             <li class="card">
               <span class="card-icon" aria-hidden="true">
-                <!-- Zettel-Icon -->
                 <svg width="28" height="28" viewBox="0 0 24 24">
                   <path
                     d="M6 3h9l4 4v14H6z"
@@ -109,16 +100,15 @@
                   />
                 </svg>
               </span>
-              <h3>Zettel verschwinden</h3>
+              <h3>Notes disappear</h3>
               <p>
-                Notizen liegen unter dem Schraubstock, im Spind oder im
-                Mülleimer. Die Spätschicht fängt blind an.
+                Slips end up under the vice, in the locker, or in the bin.
+                The next shift starts blind.
               </p>
             </li>
 
             <li class="card">
               <span class="card-icon" aria-hidden="true">
-                <!-- Sprach-Icon -->
                 <svg width="28" height="28" viewBox="0 0 24 24">
                   <path
                     d="M3 5h10v8H7l-4 4V5z"
@@ -136,16 +126,15 @@
                   />
                 </svg>
               </span>
-              <h3>Sprachbarrieren</h3>
+              <h3>Language barriers</h3>
               <p>
-                Polnisch, Türkisch, Rumänisch, Deutsch — geschrieben wird,
-                was geht. Verstanden wird, was übrig bleibt.
+                Polish, Turkish, Romanian, German — written in whatever works.
+                Understood in whatever's left.
               </p>
             </li>
 
             <li class="card">
               <span class="card-icon" aria-hidden="true">
-                <!-- Werkzeug-Icon -->
                 <svg width="28" height="28" viewBox="0 0 24 24">
                   <path
                     d="M14 4l-2 2 4 4 2-2-4-4zM3 21l8-8M11 13l3-3"
@@ -156,16 +145,15 @@
                   />
                 </svg>
               </span>
-              <h3>Werkzeug-Chaos</h3>
+              <h3>Tool chaos</h3>
               <p>
-                Wer hat den Drehmomentschlüssel? Welche Maschine läuft noch?
-                Die halbe Schicht geht für Suchen drauf.
+                Who's got the torque wrench? Which machine is still running?
+                Half the shift goes into looking.
               </p>
             </li>
 
             <li class="card">
               <span class="card-icon" aria-hidden="true">
-                <!-- Wissen-Icon -->
                 <svg width="28" height="28" viewBox="0 0 24 24">
                   <path
                     d="M4 5h7a3 3 0 013 3v12a3 3 0 00-3-3H4V5zM20 5h-7a3 3 0 00-3 3v12a3 3 0 013-3h7V5z"
@@ -176,24 +164,24 @@
                   />
                 </svg>
               </span>
-              <h3>Wissen geht verloren</h3>
+              <h3>Knowledge gets lost</h3>
               <p>
-                Was gestern auffiel, weiß heute keiner mehr. Probleme tauchen
-                wieder auf — immer wieder.
+                What we spotted yesterday, no one remembers today. The same
+                issues come back — again and again.
               </p>
             </li>
           </ul>
         </div>
       </section>
 
-      <!-- 3. Lösung -->
-      <section class="section section-alt" id="loesung">
+      <!-- 3. Solution -->
+      <section class="section section-alt" id="solution">
         <div class="container">
           <header class="section-head">
-            <h2>Die Lösung</h2>
+            <h2>The solution</h2>
             <p>
-              Ein digitales Übergabe-Heft, das jede Sprache spricht — und
-              nichts vergisst.
+              A digital handover log that speaks every language — and forgets
+              nothing.
             </p>
           </header>
 
@@ -217,10 +205,10 @@
                   />
                 </svg>
               </span>
-              <h3>Automatische Übersetzung</h3>
+              <h3>Automatic translation</h3>
               <p>
-                Jeder schreibt in seiner Sprache. Kollegen lesen in ihrer.
-                Funktioniert für DE, EN, PL, TR, RO, RU und mehr.
+                Write in your language, colleagues read in theirs. Works for
+                DE, EN, PL, TR, RO, RU and more.
               </p>
             </li>
 
@@ -241,10 +229,10 @@
                   />
                 </svg>
               </span>
-              <h3>Strukturierte Vorlagen</h3>
+              <h3>Structured templates</h3>
               <p>
-                Maschine, Auftrag, Werkzeug, offene Punkte. Vorgegebene
-                Felder statt freier Prosa.
+                Machine, job, tools, open points. Defined fields instead of
+                free-form prose.
               </p>
             </li>
 
@@ -260,10 +248,10 @@
                   />
                 </svg>
               </span>
-              <h3>Quittierung</h3>
+              <h3>Acknowledgement</h3>
               <p>
-                Wer die Schicht übernimmt, bestätigt jeden Punkt. Nichts
-                geht unter, Verantwortung ist klar.
+                Whoever takes over the shift confirms each item. Nothing
+                slips, responsibility is clear.
               </p>
             </li>
 
@@ -287,10 +275,10 @@
                   />
                 </svg>
               </span>
-              <h3>Volle Historie</h3>
+              <h3>Full history</h3>
               <p>
-                Jede Übergabe bleibt suchbar. Wiederkehrende Probleme werden
-                sichtbar, statt erneut zu passieren.
+                Every handover stays searchable. Recurring problems become
+                visible instead of happening again.
               </p>
             </li>
 
@@ -313,10 +301,10 @@
                   />
                 </svg>
               </span>
-              <h3>Werkzeug-Übersicht</h3>
+              <h3>Tool overview</h3>
               <p>
-                Wer hat was, welche Maschine läuft, was steht still — auf
-                einen Blick, statt durch die Halle zu rennen.
+                Who has what, which machine is running, what's down — at a
+                glance, instead of running through the hall.
               </p>
             </li>
 
@@ -340,70 +328,59 @@
                   />
                 </svg>
               </span>
-              <h3>Auf jedem Gerät</h3>
+              <h3>On any device</h3>
               <p>
-                Handy, Tablet, Werkstatt-PC. Im Browser, ohne Installation,
-                ohne IT-Abteilung.
+                Phone, tablet, workshop PC. In the browser, no install, no
+                IT department needed.
               </p>
             </li>
           </ul>
         </div>
       </section>
 
-      <!-- 4. Über -->
-      <section class="section" id="ueber">
+      <!-- 4. About -->
+      <section class="section" id="about">
         <div class="container narrow">
           <header class="section-head">
-            <h2>Wer dahinter steckt</h2>
+            <h2>Who's behind it</h2>
           </header>
           <p>
-            Schichtübergabe wird von einem ehemaligen Zerspanungs­mechaniker
-            gebaut — acht Jahre an der Maschine, danach IT. Das Problem mit
-            den verschwundenen Zetteln und den unverstandenen Übergaben
-            kenne ich aus erster Hand. Genau deswegen entsteht dieses
-            Werkzeug: gebaut von jemandem, der weiß, wie's in der Halle
-            wirklich läuft.
+            Shift Handover is built by a former precision machinist — eight
+            years at the machine, then a career in IT. The problem of lost
+            slips and misunderstood handovers is one I lived through.
+            That's exactly why this tool exists: built by someone who knows
+            how things actually run on the shop floor.
           </p>
         </div>
       </section>
 
-      <!-- 5. Pricing-Teaser -->
+      <!-- 5. Pricing teaser -->
       <section class="section section-alt" id="pricing">
         <div class="container narrow">
           <header class="section-head">
-            <h2>Preis</h2>
+            <h2>Price</h2>
           </header>
           <p class="pricing-headline">
-            <strong>Ab 39 € / Monat pro Standort.</strong>
+            <strong>From €39 / month per site.</strong>
           </p>
-          <p class="pricing-sub">
-            Frühe Nutzer: 50 % im ersten Jahr.
-          </p>
+          <p class="pricing-sub">Early adopters: 50 % off the first year.</p>
           <p>
-            <a class="btn btn-primary" href="#warteliste">
-              Auf die Warteliste
-            </a>
+            <a class="btn btn-primary" href="#waitlist">Join the waitlist</a>
           </p>
         </div>
       </section>
 
-      <!-- 6. Warteliste -->
-      <section class="section" id="warteliste">
+      <!-- 6. Waitlist -->
+      <section class="section" id="waitlist">
         <div class="container narrow">
           <header class="section-head">
-            <h2>Auf die Warteliste</h2>
+            <h2>Join the waitlist</h2>
             <p>
-              Erste 20 Kunden: <strong>50 % Rabatt</strong> + persönliches
-              Onboarding.
+              First 20 customers: <strong>50 % discount</strong> + personal
+              onboarding.
             </p>
           </header>
 
-          <!--
-            Formspree-Endpoint als Platzhalter. Vor Deploy ersetzen
-            (siehe README.md). Bei fehlendem/unverändertem Platzhalter
-            zeigt main.js eine Hinweis-Fehlermeldung statt einen
-            kaputten Request abzusetzen.
-          -->
           <form
             id="waitlist-form"
             class="waitlist-form"
@@ -411,18 +388,16 @@
             method="post"
             novalidate
           >
-            <label for="email" class="sr-only">E-Mail-Adresse</label>
+            <label for="email" class="sr-only">Email address</label>
             <input
               id="email"
               name="email"
               type="email"
               required
               autocomplete="email"
-              placeholder="deine@email.de"
+              placeholder="you@email.com"
             />
-            <button type="submit" class="btn btn-primary">
-              Eintragen
-            </button>
+            <button type="submit" class="btn btn-primary">Sign up</button>
             <p
               class="form-message form-error"
               id="waitlist-error"
@@ -437,8 +412,8 @@
             hidden
             role="status"
           >
-            <strong>Danke!</strong> Du stehst auf der Liste. Wir melden uns,
-            sobald es losgeht.
+            <strong>Thanks!</strong> You're on the list. We'll be in touch as
+            soon as we launch.
           </div>
         </div>
       </section>
@@ -446,19 +421,13 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>&copy; <span id="footer-year">2026</span> Schichtübergabe</p>
+        <p>&copy; <span id="footer-year">2026</span> Shift Handover</p>
         <nav aria-label="Footer">
           <ul class="footer-links">
-            <li><a href="impressum.html">Impressum</a></li>
-            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="impressum.html">Imprint</a></li>
+            <li><a href="datenschutz.html">Privacy</a></li>
             <li>
-              <!--
-                mailto-Adresse als Platzhalter; vor Deploy auf echte
-                Kontaktadresse anpassen.
-              -->
-              <a href="mailto:kontakt@schichtuebergabe.example"
-                >Kontakt</a
-              >
+              <a href="mailto:kontakt@schichtuebergabe.example">Contact</a>
             </li>
           </ul>
         </nav>

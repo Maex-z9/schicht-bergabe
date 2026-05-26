@@ -25,6 +25,42 @@
     yearEl.textContent = String(new Date().getFullYear());
   }
 
+  // Reveal-on-scroll. Wir markieren die typischen Hauptblöcke (Karten,
+  // Section-Heads, Hero-Visual, Pricing-/Waitlist-Karte) und blenden sie
+  // beim Eintritt in den Viewport sanft ein. Wenn IntersectionObserver
+  // fehlt oder der Nutzer "reduced motion" möchte, machen wir nichts —
+  // die Inhalte sind dann sofort sichtbar (ohne FOUC).
+  var prefersReduced = window.matchMedia
+    ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    : false;
+
+  if (!prefersReduced && "IntersectionObserver" in window) {
+    var selector =
+      ".section-head, .card, .hero-visual, .pricing-card, .waitlist-card";
+    var targets = document.querySelectorAll(selector);
+    if (targets.length) {
+      targets.forEach(function (el) {
+        el.classList.add("reveal");
+      });
+
+      var io = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      );
+
+      targets.forEach(function (el) {
+        io.observe(el);
+      });
+    }
+  }
+
   var form = document.getElementById("waitlist-form");
   if (!form) return;
 

@@ -60,16 +60,93 @@
       <!-- 1. Hero -->
       <section class="hero" id="top">
         <div class="container hero-inner">
-          <h1>Schichtübergabe für mehrsprachige Werkstätten</h1>
-          <p class="lede">
-            Schluss mit Zettelwirtschaft. Jeder schreibt in seiner Sprache,
-            jeder liest in seiner.
-          </p>
-          <p>
-            <a class="btn btn-primary" href="#warteliste">
-              Auf die Warteliste
-            </a>
-          </p>
+          <div class="hero-copy">
+            <h1>
+              Schichtübergabe für
+              <span class="accent-underline">mehrsprachige</span> Werkstätten
+            </h1>
+            <p class="lede">
+              Schluss mit Zettelwirtschaft. Jeder schreibt in seiner Sprache,
+              jeder liest in seiner.
+            </p>
+            <p>
+              <a class="btn btn-primary" href="#warteliste">
+                Auf die Warteliste
+                <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+            </p>
+            <ul class="hero-meta">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                DSGVO-konform
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Keine Installation nötig
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                In Minuten startklar
+              </li>
+            </ul>
+          </div>
+
+          <!--
+            Hero-Visual: CSS-Mockup einer Übergabe-Karte mit übersetzten
+            Notizen. Macht die Multilingual-Funktion sofort sichtbar.
+            Ab 880px Breite eingeblendet, sonst weggeblendet.
+            Reine HTML/CSS-Komposition, keine Bilder.
+          -->
+          <div class="hero-visual" aria-hidden="true">
+            <article class="mock-card">
+              <header class="mock-head">
+                <div>
+                  <div class="mock-title">CNC-Drehbank 3</div>
+                  <div class="mock-sub">Frühschicht → Spätschicht · 14:00</div>
+                </div>
+                <span class="mock-status">Offen</span>
+              </header>
+
+              <ul class="mock-list">
+                <li class="mock-item">
+                  <span class="mock-flag mock-flag-pl" aria-label="Polnisch"></span>
+                  <div>
+                    <div class="mock-orig">„Materiał kończy się – zamówić nowy"</div>
+                    <div class="mock-trans">Material geht aus — bitte neu bestellen</div>
+                  </div>
+                </li>
+                <li class="mock-item">
+                  <span class="mock-flag mock-flag-tr" aria-label="Türkisch"></span>
+                  <div>
+                    <div class="mock-orig">„T15 takımı körelmiş, değiştirildi"</div>
+                    <div class="mock-trans">Werkzeug T15 stumpf, wurde getauscht</div>
+                  </div>
+                </li>
+                <li class="mock-item">
+                  <span class="mock-flag mock-flag-de" aria-label="Deutsch"></span>
+                  <div>
+                    <div class="mock-trans">Kühlmittel-Stand 60 %, beim nächsten Wechsel nachfüllen</div>
+                  </div>
+                </li>
+              </ul>
+
+              <footer class="mock-foot">
+                <span>3 Punkte · 1 quittierungspflichtig</span>
+                <span class="mock-ack">
+                  <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  Übernahme: M. Kowalski
+                </span>
+              </footer>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -77,10 +154,11 @@
       <section class="section" id="problem">
         <div class="container">
           <header class="section-head">
-            <h2>Das Problem</h2>
+            <span class="eyebrow">Das Problem</span>
+            <h2>Was am Schichtwechsel jeden Tag schiefgeht.</h2>
             <p>
-              Was am Schichtwechsel jeden Tag schiefgeht — und Zeit, Material
-              und Nerven kostet.
+              Zettelwirtschaft, Sprachbarrieren und Werkzeug-Chaos — die
+              Punkte, die Zeit, Material und Nerven kosten.
             </p>
           </header>
 
@@ -190,10 +268,11 @@
       <section class="section section-alt" id="loesung">
         <div class="container">
           <header class="section-head">
-            <h2>Die Lösung</h2>
+            <span class="eyebrow">Die Lösung</span>
+            <h2>Ein digitales Übergabe-Heft, das nichts vergisst.</h2>
             <p>
-              Ein digitales Übergabe-Heft, das jede Sprache spricht — und
-              nichts vergisst.
+              Sechs Funktionen, die genau das tun, was in der Halle
+              wirklich gebraucht wird — mehr nicht.
             </p>
           </header>
 
@@ -354,7 +433,8 @@
       <section class="section" id="ueber">
         <div class="container narrow">
           <header class="section-head">
-            <h2>Wer dahinter steckt</h2>
+            <span class="eyebrow">Über</span>
+            <h2>Wer dahinter steckt.</h2>
           </header>
           <p>
             Schichtübergabe wird von einem ehemaligen Zerspanungs­mechaniker
@@ -370,75 +450,77 @@
       <!-- 5. Pricing-Teaser -->
       <section class="section section-alt" id="pricing">
         <div class="container narrow">
-          <header class="section-head">
-            <h2>Preis</h2>
-          </header>
-          <p class="pricing-headline">
-            <strong>Ab 39 € / Monat pro Standort.</strong>
-          </p>
-          <p class="pricing-sub">
-            Frühe Nutzer: 50 % im ersten Jahr.
-          </p>
-          <p>
-            <a class="btn btn-primary" href="#warteliste">
-              Auf die Warteliste
-            </a>
-          </p>
+          <div class="pricing-card">
+            <span class="eyebrow">Preis</span>
+            <h2>Fair, ohne Knebelvertrag.</h2>
+            <p class="pricing-headline">Ab 39 € / Monat pro Standort</p>
+            <p class="pricing-sub">Frühe Nutzer: 50 % im ersten Jahr.</p>
+            <p>
+              <a class="btn btn-primary" href="#warteliste">
+                Auf die Warteliste
+                <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+            </p>
+          </div>
         </div>
       </section>
 
       <!-- 6. Warteliste -->
       <section class="section" id="warteliste">
         <div class="container narrow">
-          <header class="section-head">
-            <h2>Auf die Warteliste</h2>
-            <p>
-              Erste 20 Kunden: <strong>50 % Rabatt</strong> + persönliches
-              Onboarding.
-            </p>
-          </header>
+          <div class="waitlist-card">
+            <header class="section-head" style="margin-bottom: 28px;">
+              <span class="eyebrow">Warteliste</span>
+              <h2>Trag dich ein.</h2>
+              <p>
+                Erste 20 Kunden: <strong>50 % Rabatt</strong> + persönliches
+                Onboarding.
+              </p>
+            </header>
 
-          <!--
-            Formspree-Endpoint als Platzhalter. Vor Deploy ersetzen
-            (siehe README.md). Bei fehlendem/unverändertem Platzhalter
-            zeigt main.js eine Hinweis-Fehlermeldung statt einen
-            kaputten Request abzusetzen.
-          -->
-          <form
-            id="waitlist-form"
-            class="waitlist-form"
-            action="FORMSPREE_URL_HIER"
-            method="post"
-            novalidate
-          >
-            <label for="email" class="sr-only">E-Mail-Adresse</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              required
-              autocomplete="email"
-              placeholder="deine@email.de"
-            />
-            <button type="submit" class="btn btn-primary">
-              Eintragen
-            </button>
-            <p
-              class="form-message form-error"
-              id="waitlist-error"
+            <!--
+              Formspree-Endpoint als Platzhalter. Vor Deploy ersetzen
+              (siehe README.md). Bei fehlendem/unverändertem Platzhalter
+              zeigt main.js eine Hinweis-Fehlermeldung statt einen
+              kaputten Request abzusetzen.
+            -->
+            <form
+              id="waitlist-form"
+              class="waitlist-form"
+              action="FORMSPREE_URL_HIER"
+              method="post"
+              novalidate
+            >
+              <label for="email" class="sr-only">E-Mail-Adresse</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                autocomplete="email"
+                placeholder="deine@email.de"
+              />
+              <button type="submit" class="btn btn-primary">
+                Eintragen
+                <span class="btn-arrow" aria-hidden="true">→</span>
+              </button>
+              <p
+                class="form-message form-error"
+                id="waitlist-error"
+                hidden
+                role="alert"
+              ></p>
+            </form>
+
+            <div
+              class="form-message form-success"
+              id="waitlist-success"
               hidden
-              role="alert"
-            ></p>
-          </form>
-
-          <div
-            class="form-message form-success"
-            id="waitlist-success"
-            hidden
-            role="status"
-          >
-            <strong>Danke!</strong> Du stehst auf der Liste. Wir melden uns,
-            sobald es losgeht.
+              role="status"
+            >
+              <strong>Danke!</strong> Du stehst auf der Liste. Wir melden uns,
+              sobald es losgeht.
+            </div>
           </div>
         </div>
       </section>

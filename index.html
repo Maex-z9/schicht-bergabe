@@ -6,18 +6,97 @@
     <title>Schichtübergabe für mehrsprachige Werkstätten</title>
     <meta
       name="description"
-      content="Schluss mit Zettelwirtschaft. Jeder schreibt die Schichtübergabe in seiner Sprache, jeder liest sie in seiner."
+      content="Digitale Schichtübergabe für mehrsprachige Werkstätten — jeder schreibt in seiner Sprache, jeder liest in seiner. DSGVO-konform, kein Setup."
     />
     <meta name="robots" content="index,follow" />
     <meta name="theme-color" content="#0a1224" />
-    <link rel="canonical" href="./index.html" />
-    <link rel="alternate" hreflang="de" href="./index.html" />
-    <link rel="alternate" hreflang="en" href="./index.en.html" />
+    <link rel="canonical" href="https://saaslyde.org/" />
+    <link rel="alternate" hreflang="de" href="https://saaslyde.org/" />
+    <link rel="alternate" hreflang="en" href="https://saaslyde.org/index.en.html" />
+    <link rel="alternate" hreflang="x-default" href="https://saaslyde.org/" />
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp, …) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Schichtübergabe" />
+    <meta property="og:title" content="Schichtübergabe für mehrsprachige Werkstätten" />
+    <meta
+      property="og:description"
+      content="Digitale Schichtübergabe für mehrsprachige Werkstätten — jeder schreibt in seiner Sprache, jeder liest in seiner."
+    />
+    <meta property="og:url" content="https://saaslyde.org/" />
+    <meta property="og:image" content="https://saaslyde.org/assets/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Schichtübergabe — digitales Übergabe-Heft für mehrsprachige Werkstätten"
+    />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Schichtübergabe für mehrsprachige Werkstätten" />
+    <meta
+      name="twitter:description"
+      content="Jeder schreibt in seiner Sprache, jeder liest in seiner. DSGVO-konform, kein Setup."
+    />
+    <meta name="twitter:image" content="https://saaslyde.org/assets/og.png" />
+    <meta
+      name="twitter:image:alt"
+      content="Schichtübergabe — digitales Übergabe-Heft für mehrsprachige Werkstätten"
+    />
+
     <link
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231E3A5F'/%3E%3Cpath d='M8 11h16M8 16h16M8 21h10' stroke='%23fff' stroke-width='2.5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
     <link rel="stylesheet" href="css/style.css?v=6" />
+
+    <!--
+      Strukturierte Daten — hilft Google das Produkt als SaaS einzuordnen
+      und gibt der Marke eine Organization-Karte.
+    -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://saaslyde.org/#organization",
+          "name": "Schichtübergabe",
+          "url": "https://saaslyde.org/",
+          "email": "saaslyde@zohomail.eu",
+          "logo": "https://saaslyde.org/assets/og.png"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Schichtübergabe",
+          "description": "Digitale Schichtübergabe für mehrsprachige Werkstätten. Strukturierte Vorlagen, automatische Übersetzung, Quittierung und volle Historie.",
+          "url": "https://saaslyde.org/",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "inLanguage": ["de", "en"],
+          "publisher": { "@id": "https://saaslyde.org/#organization" },
+          "offers": {
+            "@type": "Offer",
+            "price": "39",
+            "priceCurrency": "EUR",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "39",
+              "priceCurrency": "EUR",
+              "referenceQuantity": {
+                "@type": "QuantitativeValue",
+                "value": 1,
+                "unitCode": "MON"
+              }
+            }
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Zum Inhalt springen</a>

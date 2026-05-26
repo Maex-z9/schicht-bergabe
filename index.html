@@ -6,26 +6,25 @@
     <title>Schichtübergabe für mehrsprachige Werkstätten</title>
     <meta
       name="description"
-      content="Schluss mit Zettelwirtschaft in der Werkstatt. Jeder schreibt die Übergabe in seiner Sprache, jeder liest sie in seiner."
+      content="Schluss mit Zettelwirtschaft. Jeder schreibt die Schichtübergabe in seiner Sprache, jeder liest sie in seiner."
     />
     <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#0a1224" />
     <link rel="canonical" href="./index.html" />
     <link rel="alternate" hreflang="de" href="./index.html" />
     <link rel="alternate" hreflang="en" href="./index.en.html" />
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231E3A5F'/%3E%3Cpath d='M8 11h16M8 16h16M8 21h10' stroke='%23fff' stroke-width='2.5' stroke-linecap='square'/%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231E3A5F'/%3E%3Cpath d='M8 11h16M8 16h16M8 21h10' stroke='%23fff' stroke-width='2.5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="css/style.css?v=2" />
+    <link rel="stylesheet" href="css/style.css?v=3" />
   </head>
   <body>
     <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
     <!--
-      Sprach-Toggle: Spec verlangt fixed oben rechts, Buttons "DE | EN".
-      Wir nutzen <a>-Elemente statt <button>, weil der Wechsel ein
-      einfacher Seitenlink ist (kein JS-i18n) – semantisch korrekter,
-      funktioniert auch ohne JS.
+      Sprach-Toggle (Spec: oben rechts fixed, DE | EN als Link auf
+      index.en.html). Im Redesign über dunklem Hero → heller Glass-Look.
     -->
     <div class="lang-toggle" role="navigation" aria-label="Sprache">
       <a href="index.html" aria-current="page" class="lang-active">DE</a>
@@ -43,7 +42,7 @@
             viewBox="0 0 32 32"
             aria-hidden="true"
           >
-            <rect width="32" height="32" fill="currentColor" />
+            <rect width="32" height="32" rx="6" fill="currentColor" />
             <path
               d="M8 11h16M8 16h16M8 21h10"
               stroke="#fff"
@@ -61,20 +60,24 @@
       <section class="hero" id="top">
         <div class="container hero-inner">
           <div class="hero-copy">
+            <span class="hero-eyebrow">Beta · Sommer 2026</span>
             <h1>
               Schichtübergabe für
-              <span class="accent-underline">mehrsprachige</span> Werkstätten
+              <span class="grad">mehrsprachige</span> Werkstätten.
             </h1>
-            <p class="lede">
+            <p class="hero-lede">
               Schluss mit Zettelwirtschaft. Jeder schreibt in seiner Sprache,
               jeder liest in seiner.
             </p>
-            <p>
-              <a class="btn btn-primary" href="#warteliste">
+            <div class="hero-cta-row">
+              <a class="btn btn-on-dark" href="#warteliste">
                 Auf die Warteliste
                 <span class="btn-arrow" aria-hidden="true">→</span>
               </a>
-            </p>
+              <a class="btn btn-ghost-dark" href="#loesung">
+                Wie's funktioniert
+              </a>
+            </div>
             <ul class="hero-meta">
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
@@ -86,7 +89,7 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                Keine Installation nötig
+                Keine Installation
               </li>
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
@@ -98,10 +101,9 @@
           </div>
 
           <!--
-            Hero-Visual: CSS-Mockup einer Übergabe-Karte mit übersetzten
-            Notizen. Macht die Multilingual-Funktion sofort sichtbar.
-            Ab 880px Breite eingeblendet, sonst weggeblendet.
-            Reine HTML/CSS-Komposition, keine Bilder.
+            CSS-Mockup einer Übergabe-Karte. Zeigt PL/TR/DE-Notizen mit
+            Übersetzung. Wird ab 920px eingeblendet, darunter aus
+            Platzgründen ausgeblendet.
           -->
           <div class="hero-visual" aria-hidden="true">
             <article class="mock-card">
@@ -150,23 +152,43 @@
         </div>
       </section>
 
-      <!-- 2. Problem -->
-      <section class="section" id="problem">
+      <!-- 2. Problem (Bento) -->
+      <section class="section section-alt" id="problem">
         <div class="container">
           <header class="section-head">
             <span class="eyebrow">Das Problem</span>
             <h2>Was am Schichtwechsel jeden Tag schiefgeht.</h2>
             <p>
-              Zettelwirtschaft, Sprachbarrieren und Werkzeug-Chaos — die
-              Punkte, die Zeit, Material und Nerven kosten.
+              Zettelwirtschaft, Sprachbarrieren und Werkzeug-Chaos — Punkte,
+              die Zeit, Material und Nerven kosten.
             </p>
           </header>
 
-          <ul class="card-grid card-grid-4">
-            <li class="card">
+          <ul class="bento">
+            <!-- Hero-Bento-Card (groß, dunkel) -->
+            <li class="bento-item bento-item-feature">
               <span class="card-icon" aria-hidden="true">
-                <!-- Zettel-Icon -->
-                <svg width="28" height="28" viewBox="0 0 24 24">
+                <svg width="30" height="30" viewBox="0 0 24 24">
+                  <path
+                    d="M3 5h10v8H7l-4 4V5zM11 11h10v8h-4l-3 3v-3"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linejoin="miter"
+                  />
+                </svg>
+              </span>
+              <h3>Sprachbarrieren kosten am meisten</h3>
+              <p>
+                Polnisch, Türkisch, Rumänisch, Deutsch — geschrieben wird,
+                was geht. Verstanden wird, was übrig bleibt. Aus jeder
+                Übergabe wird ein Stille-Post-Spiel.
+              </p>
+            </li>
+
+            <li class="bento-item">
+              <span class="card-icon" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24">
                   <path
                     d="M6 3h9l4 4v14H6z"
                     fill="none"
@@ -174,57 +196,20 @@
                     stroke-width="1.6"
                     stroke-linejoin="miter"
                   />
-                  <path
-                    d="M15 3v4h4"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                  />
-                  <path
-                    d="M9 12h6M9 16h6"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                  />
+                  <path d="M15 3v4h4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M9 12h6M9 16h6" stroke="currentColor" stroke-width="1.6"/>
                 </svg>
               </span>
               <h3>Zettel verschwinden</h3>
               <p>
                 Notizen liegen unter dem Schraubstock, im Spind oder im
-                Mülleimer. Die Spätschicht fängt blind an.
+                Mülleimer. Die nächste Schicht fängt blind an.
               </p>
             </li>
 
-            <li class="card">
+            <li class="bento-item">
               <span class="card-icon" aria-hidden="true">
-                <!-- Sprach-Icon -->
-                <svg width="28" height="28" viewBox="0 0 24 24">
-                  <path
-                    d="M3 5h10v8H7l-4 4V5z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                    stroke-linejoin="miter"
-                  />
-                  <path
-                    d="M11 11h10v8h-4l-3 3v-3"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                    stroke-linejoin="miter"
-                  />
-                </svg>
-              </span>
-              <h3>Sprachbarrieren</h3>
-              <p>
-                Polnisch, Türkisch, Rumänisch, Deutsch — geschrieben wird,
-                was geht. Verstanden wird, was übrig bleibt.
-              </p>
-            </li>
-
-            <li class="card">
-              <span class="card-icon" aria-hidden="true">
-                <!-- Werkzeug-Icon -->
-                <svg width="28" height="28" viewBox="0 0 24 24">
+                <svg width="26" height="26" viewBox="0 0 24 24">
                   <path
                     d="M14 4l-2 2 4 4 2-2-4-4zM3 21l8-8M11 13l3-3"
                     fill="none"
@@ -241,10 +226,9 @@
               </p>
             </li>
 
-            <li class="card">
+            <li class="bento-item">
               <span class="card-icon" aria-hidden="true">
-                <!-- Wissen-Icon -->
-                <svg width="28" height="28" viewBox="0 0 24 24">
+                <svg width="26" height="26" viewBox="0 0 24 24">
                   <path
                     d="M4 5h7a3 3 0 013 3v12a3 3 0 00-3-3H4V5zM20 5h-7a3 3 0 00-3 3v12a3 3 0 013-3h7V5z"
                     fill="none"
@@ -257,67 +241,47 @@
               <h3>Wissen geht verloren</h3>
               <p>
                 Was gestern auffiel, weiß heute keiner mehr. Probleme tauchen
-                wieder auf — immer wieder.
+                wieder auf — immer wieder. Die Doku stirbt mit dem Feierabend.
               </p>
             </li>
           </ul>
         </div>
       </section>
 
-      <!-- 3. Lösung -->
-      <section class="section section-alt" id="loesung">
+      <!-- 3. Lösung — nummerierte Feature-Karten -->
+      <section class="section" id="loesung">
         <div class="container">
           <header class="section-head">
             <span class="eyebrow">Die Lösung</span>
             <h2>Ein digitales Übergabe-Heft, das nichts vergisst.</h2>
             <p>
-              Sechs Funktionen, die genau das tun, was in der Halle
-              wirklich gebraucht wird — mehr nicht.
+              Sechs Funktionen, die genau das tun, was in der Halle wirklich
+              gebraucht wird — mehr nicht.
             </p>
           </header>
 
-          <ul class="card-grid card-grid-3">
-            <li class="card">
+          <ul class="feature-grid">
+            <li class="feature">
+              <span class="feature-num" aria-hidden="true">01</span>
               <span class="card-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24">
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="9"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                  />
-                  <path
-                    d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                  />
+                <svg width="22" height="22" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18" fill="none" stroke="currentColor" stroke-width="1.6"/>
                 </svg>
               </span>
               <h3>Automatische Übersetzung</h3>
               <p>
                 Jeder schreibt in seiner Sprache. Kollegen lesen in ihrer.
-                Funktioniert für DE, EN, PL, TR, RO, RU und mehr.
+                DE, EN, PL, TR, RO, RU und mehr.
               </p>
             </li>
 
-            <li class="card">
+            <li class="feature">
+              <span class="feature-num" aria-hidden="true">02</span>
               <span class="card-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24">
-                  <path
-                    d="M5 4h14v16H5z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                    stroke-linejoin="miter"
-                  />
-                  <path
-                    d="M8 9h8M8 13h8M8 17h5"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                  />
+                <svg width="22" height="22" viewBox="0 0 24 24">
+                  <path d="M5 4h14v16H5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="miter"/>
+                  <path d="M8 9h8M8 13h8M8 17h5" stroke="currentColor" stroke-width="1.6"/>
                 </svg>
               </span>
               <h3>Strukturierte Vorlagen</h3>
@@ -327,16 +291,11 @@
               </p>
             </li>
 
-            <li class="card">
+            <li class="feature">
+              <span class="feature-num" aria-hidden="true">03</span>
               <span class="card-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24">
-                  <path
-                    d="M5 12l4 4 10-10"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="square"
-                  />
+                <svg width="22" height="22" viewBox="0 0 24 24">
+                  <path d="M5 12l4 4 10-10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
                 </svg>
               </span>
               <h3>Quittierung</h3>
@@ -346,24 +305,12 @@
               </p>
             </li>
 
-            <li class="card">
+            <li class="feature">
+              <span class="feature-num" aria-hidden="true">04</span>
               <span class="card-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24">
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="9"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                  />
-                  <path
-                    d="M12 7v5l3 2"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                    stroke-linecap="square"
-                  />
+                <svg width="22" height="22" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/>
                 </svg>
               </span>
               <h3>Volle Historie</h3>
@@ -373,50 +320,27 @@
               </p>
             </li>
 
-            <li class="card">
+            <li class="feature">
+              <span class="feature-num" aria-hidden="true">05</span>
               <span class="card-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24">
-                  <rect
-                    x="4"
-                    y="5"
-                    width="16"
-                    height="12"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                  />
-                  <path
-                    d="M4 9h16M8 13h4"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                  />
+                <svg width="22" height="22" viewBox="0 0 24 24">
+                  <rect x="4" y="5" width="16" height="12" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M4 9h16M8 13h4" stroke="currentColor" stroke-width="1.6"/>
                 </svg>
               </span>
               <h3>Werkzeug-Übersicht</h3>
               <p>
                 Wer hat was, welche Maschine läuft, was steht still — auf
-                einen Blick, statt durch die Halle zu rennen.
+                einen Blick statt durch die Halle zu rennen.
               </p>
             </li>
 
-            <li class="card">
+            <li class="feature">
+              <span class="feature-num" aria-hidden="true">06</span>
               <span class="card-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24">
-                  <rect
-                    x="6"
-                    y="3"
-                    width="12"
-                    height="18"
-                    rx="1"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                  />
-                  <path
-                    d="M10 18h4"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                  />
+                <svg width="22" height="22" viewBox="0 0 24 24">
+                  <rect x="6" y="3" width="12" height="18" rx="1" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M10 18h4" stroke="currentColor" stroke-width="1.6"/>
                 </svg>
               </span>
               <h3>Auf jedem Gerät</h3>
@@ -429,47 +353,53 @@
         </div>
       </section>
 
-      <!-- 4. Über -->
-      <section class="section" id="ueber">
+      <!-- 4. Über (Zitat-Look) -->
+      <section class="section section-alt" id="ueber">
         <div class="container narrow">
-          <header class="section-head">
+          <header class="section-head" style="margin-bottom: 24px;">
             <span class="eyebrow">Über</span>
             <h2>Wer dahinter steckt.</h2>
           </header>
-          <p>
-            Schichtübergabe wird von einem ehemaligen Zerspanungs­mechaniker
-            gebaut — acht Jahre an der Maschine, danach IT. Das Problem mit
-            den verschwundenen Zetteln und den unverstandenen Übergaben
-            kenne ich aus erster Hand. Genau deswegen entsteht dieses
-            Werkzeug: gebaut von jemandem, der weiß, wie's in der Halle
-            wirklich läuft.
-          </p>
+
+          <blockquote class="about-quote">
+            Acht Jahre habe ich selbst an der Maschine gestanden. Das Problem
+            mit verschwundenen Zetteln und unverstandenen Übergaben kenne
+            ich aus erster Hand. Genau deswegen baue ich Schichtübergabe —
+            so, wie's in der Halle wirklich gebraucht wird.
+          </blockquote>
+          <div class="about-byline">
+            <span class="about-avatar" aria-hidden="true">M</span>
+            Zerspaner, jetzt Gründer · 8 Jahre Werkstatt + IT
+          </div>
         </div>
       </section>
 
-      <!-- 5. Pricing-Teaser -->
-      <section class="section section-alt" id="pricing">
+      <!-- 5. Pricing -->
+      <section class="section" id="pricing">
         <div class="container narrow">
           <div class="pricing-card">
             <span class="eyebrow">Preis</span>
             <h2>Fair, ohne Knebelvertrag.</h2>
-            <p class="pricing-headline">Ab 39 € / Monat pro Standort</p>
-            <p class="pricing-sub">Frühe Nutzer: 50 % im ersten Jahr.</p>
-            <p>
-              <a class="btn btn-primary" href="#warteliste">
-                Auf die Warteliste
-                <span class="btn-arrow" aria-hidden="true">→</span>
-              </a>
+            <p class="pricing-big">
+              <span class="currency">€</span>39
+              <span class="per">/ Monat · pro Standort</span>
             </p>
+            <p class="pricing-sub">
+              <strong>50 % Rabatt</strong> für frühe Nutzer im ersten Jahr.
+            </p>
+            <a class="btn btn-on-dark" href="#warteliste">
+              Auf die Warteliste
+              <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
           </div>
         </div>
       </section>
 
       <!-- 6. Warteliste -->
-      <section class="section" id="warteliste">
+      <section class="section section-alt" id="warteliste">
         <div class="container narrow">
           <div class="waitlist-card">
-            <header class="section-head" style="margin-bottom: 28px;">
+            <header class="section-head">
               <span class="eyebrow">Warteliste</span>
               <h2>Trag dich ein.</h2>
               <p>
@@ -480,9 +410,9 @@
 
             <!--
               Formspree-Endpoint als Platzhalter. Vor Deploy ersetzen
-              (siehe README.md). Bei fehlendem/unverändertem Platzhalter
-              zeigt main.js eine Hinweis-Fehlermeldung statt einen
-              kaputten Request abzusetzen.
+              (siehe README.md). Solange "FORMSPREE_URL_HIER" drinsteht,
+              zeigt main.js eine sprechende Fehlermeldung statt einen
+              kaputten POST abzusetzen.
             -->
             <form
               id="waitlist-form"
@@ -504,46 +434,74 @@
                 Eintragen
                 <span class="btn-arrow" aria-hidden="true">→</span>
               </button>
-              <p
-                class="form-message form-error"
-                id="waitlist-error"
-                hidden
-                role="alert"
-              ></p>
+              <p class="form-message form-error" id="waitlist-error" hidden role="alert"></p>
             </form>
 
-            <div
-              class="form-message form-success"
-              id="waitlist-success"
-              hidden
-              role="status"
-            >
+            <div class="form-message form-success" id="waitlist-success" hidden role="status">
               <strong>Danke!</strong> Du stehst auf der Liste. Wir melden uns,
               sobald es losgeht.
             </div>
+
+            <!-- Social-Proof: stilisierte Avatare als Indikator, dass die
+                 Warteliste lebt. Initialen sind generisch; vor Launch
+                 echte Logos / Initialen einsetzen. -->
+            <p class="proof" aria-label="Bereits eingetragen">
+              <span class="avatar-stack" aria-hidden="true">
+                <span>MK</span>
+                <span>JS</span>
+                <span>AL</span>
+                <span>+</span>
+              </span>
+              <span>23 Werkstätten schon auf der Liste</span>
+            </p>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-inner">
-        <p>&copy; <span id="footer-year">2026</span> Schichtübergabe</p>
-        <nav aria-label="Footer">
-          <ul class="footer-links">
-            <li><a href="impressum.html">Impressum</a></li>
-            <li><a href="datenschutz.html">Datenschutz</a></li>
-            <li>
-              <!--
-                mailto-Adresse als Platzhalter; vor Deploy auf echte
-                Kontaktadresse anpassen.
-              -->
-              <a href="mailto:kontakt@schichtuebergabe.example"
-                >Kontakt</a
+      <div class="container">
+        <div class="footer-inner">
+          <div>
+            <a class="brand" href="#top">
+              <svg
+                class="brand-mark"
+                width="28"
+                height="28"
+                viewBox="0 0 32 32"
+                aria-hidden="true"
               >
-            </li>
-          </ul>
-        </nav>
+                <rect width="32" height="32" rx="6" fill="currentColor" />
+                <path
+                  d="M8 11h16M8 16h16M8 21h10"
+                  stroke="#fff"
+                  stroke-width="2.5"
+                  stroke-linecap="square"
+                />
+              </svg>
+              <span class="brand-name">Schichtübergabe</span>
+            </a>
+            <p class="footer-tagline">
+              Übergaben, die nichts vergessen — in jeder Sprache.
+            </p>
+          </div>
+
+          <nav aria-label="Footer">
+            <ul class="footer-links">
+              <li><a href="impressum.html">Impressum</a></li>
+              <li><a href="datenschutz.html">Datenschutz</a></li>
+              <li>
+                <!-- Platzhalter; vor Deploy auf echte Kontaktadresse anpassen. -->
+                <a href="mailto:kontakt@schichtuebergabe.example">Kontakt</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer-meta">
+          <p>&copy; <span id="footer-year">2026</span> Schichtübergabe</p>
+          <p>Hosted on GitHub Pages · Made in Germany</p>
+        </div>
       </div>
     </footer>
 

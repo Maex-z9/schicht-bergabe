@@ -1145,55 +1145,6 @@ body.legal-page .lang-toggle a.lang-active {
   margin-top: 12px;
 }
 
-/* Social-Proof Avatar-Stack */
-.proof {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  margin-top: 8px;
-  font-size: 0.92rem;
-  color: var(--c-muted);
-}
-
-.avatar-stack {
-  display: inline-flex;
-}
-
-.avatar-stack > span {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-weight: 700;
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-  margin-left: -10px;
-  box-shadow: 0 2px 6px rgba(11, 20, 36, 0.18);
-}
-
-.avatar-stack > span:first-child {
-  margin-left: 0;
-}
-
-.avatar-stack > span:nth-child(1) {
-  background: linear-gradient(135deg, #1e3a5f, #5e8ac6);
-}
-.avatar-stack > span:nth-child(2) {
-  background: linear-gradient(135deg, #5e8ac6, #b5cef0);
-  color: #1e3a5f;
-}
-.avatar-stack > span:nth-child(3) {
-  background: linear-gradient(135deg, #f5a623, #ffd081);
-  color: #5a3a00;
-}
-.avatar-stack > span:nth-child(4) {
-  background: linear-gradient(135deg, #2d3a52, #5a6b8a);
-}
-
 /* ---------- Footer (dunkel) ---------- */
 
 .site-footer {

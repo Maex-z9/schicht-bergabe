@@ -1,0 +1,658 @@
+<!doctype html>
+<!--
+  Landing Page für "Schichtübergabe" — strukturierte Schichtwechsel-Doku.
+
+  Pragmatische Annahmen (briefing.md war im Repo nicht auffindbar,
+  Auftrag verlangt eigenständige Entscheidungen statt Rückfragen):
+  - Zielgruppe: Pflege, Produktion, Security, Leitstand — Branchen mit
+    24/7-Schichtbetrieb, in denen Übergaben heute oft per Zettel,
+    WhatsApp oder Excel laufen.
+  - Positionierung: B2B-SaaS, Fokus DACH, deutschsprachig.
+  - Stack: Vanilla HTML/CSS/JS, keine Abhängigkeiten, keine Build-Tools.
+  - Stil: ruhiges, professionelles Look-and-feel, dunkle Akzentfarbe,
+    System-Schrift, klare Typo. Inline-SVG statt Icon-Library.
+  - CTA: "Demo anfragen" — wir haben keinen echten Endpoint, das Form
+    submitted clientseitig und zeigt eine Bestätigung.
+-->
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Schichtübergabe — Strukturierte Übergaben, keine verlorenen Infos</title>
+    <meta
+      name="description"
+      content="Schichtübergabe digitalisiert die Übergabe zwischen Schichten. Strukturierte Vorlagen, Quittierungspflicht, vollständige Historie — für Pflege, Produktion und Leitstand."
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f172a'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='%2338bdf8' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Zum Hauptinhalt springen</a>
+
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="Schichtübergabe — Startseite">
+          <svg
+            class="brand-mark"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            aria-hidden="true"
+          >
+            <rect width="32" height="32" rx="7" fill="currentColor" />
+            <path
+              d="M9 10h14M9 16h14M9 22h9"
+              stroke="#fff"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span class="brand-name">Schichtübergabe</span>
+        </a>
+
+        <nav class="nav" aria-label="Hauptnavigation">
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="nav-list"
+          >
+            <span class="sr-only">Menü öffnen</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M4 7h16M4 12h16M4 17h16"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+          <ul class="nav-list" id="nav-list">
+            <li><a href="#features">Funktionen</a></li>
+            <li><a href="#how">So funktioniert's</a></li>
+            <li><a href="#pricing">Preise</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li>
+              <a class="nav-cta" href="#contact">Demo anfragen</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <span class="eyebrow">Schichtwechsel ohne Zettelwirtschaft</span>
+            <h1>
+              Übergaben, auf die sich die nächste Schicht
+              <span class="accent">verlassen</span> kann.
+            </h1>
+            <p class="lede">
+              Strukturierte Vorlagen, verpflichtende Quittierung und eine
+              lückenlose Historie. Schluss mit verlorenen Notizen,
+              WhatsApp-Gruppen und „das hat mir keiner gesagt".
+            </p>
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="#contact">Demo anfragen</a>
+              <a class="btn btn-ghost" href="#how">So funktioniert's</a>
+            </div>
+            <ul class="hero-trust">
+              <li>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M5 12l4 4 10-10"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                DSGVO-konform, Hosting in Deutschland
+              </li>
+              <li>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M5 12l4 4 10-10"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                In 14 Tagen einsatzbereit
+              </li>
+              <li>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M5 12l4 4 10-10"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                Keine App-Installation nötig
+              </li>
+            </ul>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <!-- Fake-Übergabe-Karte als Produkt-Mockup, reines CSS -->
+            <div class="mock-card">
+              <div class="mock-card-header">
+                <div>
+                  <div class="mock-card-title">Übergabe · Station 3B</div>
+                  <div class="mock-card-meta">
+                    Frühschicht → Spätschicht · Heute 14:00
+                  </div>
+                </div>
+                <span class="mock-badge mock-badge-open">Offen</span>
+              </div>
+              <ul class="mock-list">
+                <li>
+                  <span class="mock-dot mock-dot-red"></span>
+                  <div>
+                    <div class="mock-item-title">
+                      Patient Z. 14 — Sturzrisiko erhöht
+                    </div>
+                    <div class="mock-item-sub">Hoch · Quittierung nötig</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="mock-dot mock-dot-amber"></span>
+                  <div>
+                    <div class="mock-item-title">
+                      Medikamentenplan B6 angepasst
+                    </div>
+                    <div class="mock-item-sub">Mittel · Dr. Reiter</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="mock-dot mock-dot-green"></span>
+                  <div>
+                    <div class="mock-item-title">Lieferung Verbandstoffe</div>
+                    <div class="mock-item-sub">Info · 13:20 angekommen</div>
+                  </div>
+                </li>
+              </ul>
+              <div class="mock-card-footer">
+                <div class="mock-avatars">
+                  <span class="mock-avatar" style="--i: 0">MK</span>
+                  <span class="mock-avatar" style="--i: 1">JS</span>
+                  <span class="mock-avatar" style="--i: 2">AL</span>
+                </div>
+                <button class="mock-btn" type="button" tabindex="-1">
+                  Übergabe abschließen
+                </button>
+              </div>
+            </div>
+            <div class="mock-glow"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="logos" aria-label="Eingesetzt von">
+        <div class="container">
+          <p class="logos-label">Im Einsatz bei Teams in</p>
+          <ul class="logos-list">
+            <li>Pflegeeinrichtungen</li>
+            <li>Industriebetrieben</li>
+            <li>Sicherheitsdiensten</li>
+            <li>IT-Leitständen</li>
+            <li>Rettungsdiensten</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="features">
+        <div class="container">
+          <header class="section-head">
+            <span class="eyebrow">Funktionen</span>
+            <h2>Alles, was eine saubere Übergabe braucht.</h2>
+            <p>
+              Aus zigfachen Übergabe-Workshops destilliert: die Funktionen,
+              die wirklich den Unterschied machen — kein Bloat.
+            </p>
+          </header>
+
+          <ul class="feature-grid">
+            <li class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24">
+                  <path
+                    d="M4 6h16M4 12h16M4 18h10"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </span>
+              <h3>Strukturierte Vorlagen</h3>
+              <p>
+                Pflicht-, Optional- und Frei­text­felder pro Bereich. Keine
+                vergessenen Punkte mehr, weil „die Vorlage" sie verlangt.
+              </p>
+            </li>
+            <li class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24">
+                  <path
+                    d="M5 12l4 4 10-10"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+              <h3>Quittierungspflicht</h3>
+              <p>
+                Kritische Punkte müssen aktiv bestätigt werden. Wer was
+                wann gelesen hat, ist revisionssicher dokumentiert.
+              </p>
+            </li>
+            <li class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24">
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="8"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    fill="none"
+                  />
+                  <path
+                    d="M12 8v4l3 2"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </span>
+              <h3>Lückenlose Historie</h3>
+              <p>
+                Jede Übergabe bleibt suchbar. Filtere nach Bereich, Person
+                oder Zeitraum — auch noch nach Monaten.
+              </p>
+            </li>
+            <li class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24">
+                  <path
+                    d="M12 3l8 4v5c0 4-3.5 7-8 9-4.5-2-8-5-8-9V7l8-4z"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    fill="none"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+              <h3>DSGVO & ISO 27001</h3>
+              <p>
+                Hosting in Frankfurt, Verschlüsselung im Ruhezustand,
+                Rollen- und Rechtekonzept ab User 1.
+              </p>
+            </li>
+            <li class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24">
+                  <rect
+                    x="3"
+                    y="5"
+                    width="18"
+                    height="14"
+                    rx="2"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    fill="none"
+                  />
+                  <path
+                    d="M3 9h18"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                </svg>
+              </span>
+              <h3>Eskalationsregeln</h3>
+              <p>
+                Wird ein Punkt nicht quittiert, eskaliert das System an
+                Schichtleitung oder Bereitschaft — nach euren Regeln.
+              </p>
+            </li>
+            <li class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24">
+                  <path
+                    d="M4 17l5-5 4 4 7-8"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+              <h3>Auswertungen</h3>
+              <p>
+                Wo häufen sich Vorfälle, welche Themen tauchen ständig auf?
+                Wöchentliche Reports an Leitungsebene — automatisch.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="how">
+        <div class="container">
+          <header class="section-head">
+            <span class="eyebrow">So funktioniert's</span>
+            <h2>Drei Schritte. Mehr braucht's nicht.</h2>
+          </header>
+
+          <ol class="steps">
+            <li class="step">
+              <div class="step-num">01</div>
+              <h3>Vorlage wählen</h3>
+              <p>
+                Aussuchen aus Bibliothek oder eigene Vorlage in zehn Minuten
+                bauen — drag & drop, keine IT nötig.
+              </p>
+            </li>
+            <li class="step">
+              <div class="step-num">02</div>
+              <h3>Übergabe ausfüllen</h3>
+              <p>
+                Während der Schicht Punkte sammeln, vor dem Wechsel
+                strukturiert übergeben. Auf Tablet, Laptop oder Handy.
+              </p>
+            </li>
+            <li class="step">
+              <div class="step-num">03</div>
+              <h3>Quittieren & los</h3>
+              <p>
+                Übernehmende Schicht liest, quittiert kritische Punkte,
+                fragt nach wo nötig — und beginnt informiert.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section" id="pricing">
+        <div class="container">
+          <header class="section-head">
+            <span class="eyebrow">Preise</span>
+            <h2>Faire Preise pro aktiven Nutzer.</h2>
+            <p>Monatlich kündbar. Keine Setup-Gebühr. MwSt. nicht enthalten.</p>
+          </header>
+
+          <div class="pricing-grid">
+            <article class="plan">
+              <h3 class="plan-name">Team</h3>
+              <p class="plan-price">
+                <span class="plan-amount">9 €</span>
+                <span class="plan-unit">/ Nutzer / Monat</span>
+              </p>
+              <p class="plan-desc">
+                Für einzelne Stationen oder Schichtteams bis 50 Nutzer.
+              </p>
+              <ul class="plan-list">
+                <li>Unbegrenzte Übergaben</li>
+                <li>5 Vorlagen</li>
+                <li>30 Tage Historie</li>
+                <li>E-Mail-Support</li>
+              </ul>
+              <a class="btn btn-ghost btn-block" href="#contact">Starten</a>
+            </article>
+
+            <article class="plan plan-featured">
+              <span class="plan-badge">Beliebt</span>
+              <h3 class="plan-name">Betrieb</h3>
+              <p class="plan-price">
+                <span class="plan-amount">19 €</span>
+                <span class="plan-unit">/ Nutzer / Monat</span>
+              </p>
+              <p class="plan-desc">
+                Für ganze Einrichtungen mit mehreren Bereichen und Rollen.
+              </p>
+              <ul class="plan-list">
+                <li>Alles aus Team</li>
+                <li>Unbegrenzte Vorlagen</li>
+                <li>Unbegrenzte Historie</li>
+                <li>Eskalationsregeln</li>
+                <li>Auswertungen & Reports</li>
+                <li>Telefon-Support</li>
+              </ul>
+              <a class="btn btn-primary btn-block" href="#contact">Demo anfragen</a>
+            </article>
+
+            <article class="plan">
+              <h3 class="plan-name">Enterprise</h3>
+              <p class="plan-price">
+                <span class="plan-amount">Auf Anfrage</span>
+              </p>
+              <p class="plan-desc">
+                Für Klinik­verbünde, Konzerne, ab 500 Nutzern.
+              </p>
+              <ul class="plan-list">
+                <li>Alles aus Betrieb</li>
+                <li>SSO / SAML</li>
+                <li>SLA 99,9 %</li>
+                <li>Eigene Cloud / On-Prem</li>
+                <li>Dedizierter Customer Success</li>
+              </ul>
+              <a class="btn btn-ghost btn-block" href="#contact">Sprechen</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="faq">
+        <div class="container faq-container">
+          <header class="section-head">
+            <span class="eyebrow">FAQ</span>
+            <h2>Häufige Fragen.</h2>
+          </header>
+
+          <ul class="faq-list">
+            <li>
+              <details>
+                <summary>Brauchen wir IT-Ressourcen für die Einführung?</summary>
+                <p>
+                  Nein. Schichtübergabe läuft im Browser, ohne Installation.
+                  Eure IT muss nichts ausrollen, ihr braucht nur E-Mail-Adressen
+                  für die Nutzer.
+                </p>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Wie sicher sind unsere Daten?</summary>
+                <p>
+                  Hosting in einem ISO-27001-zertifizierten Rechenzentrum in
+                  Frankfurt. Verschlüsselung im Ruhezustand und in Transit,
+                  Auftrags­verarbeitung nach DSGVO inklusive.
+                </p>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Können wir bestehende Vorlagen übernehmen?</summary>
+                <p>
+                  Ja. Wir digitalisieren eure aktuellen Übergabe­bögen im
+                  Onboarding kostenfrei — egal ob Word, Excel oder
+                  handschriftlich.
+                </p>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Funktioniert das auch ohne Internet?</summary>
+                <p>
+                  Eingaben werden offline gepuffert und synchronisieren,
+                  sobald die Verbindung zurück ist. Für vollständig offline
+                  Umgebungen bieten wir im Enterprise-Tarif On-Prem.
+                </p>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Wie lange dauert die Einführung?</summary>
+                <p>
+                  Kleine Teams sind nach einem Tag produktiv. Größere
+                  Einführungen mit mehreren Bereichen brauchen zwei bis vier
+                  Wochen — inklusive Vorlagen-Workshop und Schulung.
+                </p>
+              </details>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section cta-section" id="contact">
+        <div class="container cta-inner">
+          <div class="cta-copy">
+            <h2>Demo anfragen.</h2>
+            <p>
+              30 Minuten, am Bildschirm, kein Vertrieb-Schauspiel. Wir zeigen,
+              ob Schichtübergabe zu eurem Alltag passt — und sagen es auch,
+              wenn nicht.
+            </p>
+          </div>
+
+          <form class="cta-form" id="demo-form" novalidate>
+            <div class="form-row">
+              <label for="f-name">Name</label>
+              <input
+                id="f-name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                required
+              />
+            </div>
+            <div class="form-row">
+              <label for="f-email">E-Mail</label>
+              <input
+                id="f-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+              />
+            </div>
+            <div class="form-row">
+              <label for="f-org">Organisation</label>
+              <input
+                id="f-org"
+                name="org"
+                type="text"
+                autocomplete="organization"
+              />
+            </div>
+            <div class="form-row">
+              <label for="f-notes">Worum geht's? <span>(optional)</span></label>
+              <textarea id="f-notes" name="notes" rows="3"></textarea>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit">
+              Demo anfragen
+            </button>
+            <p class="form-success" id="form-success" hidden role="status">
+              Danke — wir melden uns innerhalb eines Werktages.
+            </p>
+            <p class="form-meta">
+              Mit dem Absenden akzeptierst du die
+              <a href="#">Datenschutzhinweise</a>.
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <span class="brand">
+            <svg
+              class="brand-mark"
+              width="28"
+              height="28"
+              viewBox="0 0 32 32"
+              aria-hidden="true"
+            >
+              <rect width="32" height="32" rx="7" fill="currentColor" />
+              <path
+                d="M9 10h14M9 16h14M9 22h9"
+                stroke="#fff"
+                stroke-width="2.5"
+                stroke-linecap="round"
+              />
+            </svg>
+            <span class="brand-name">Schichtübergabe</span>
+          </span>
+          <p class="footer-tagline">
+            Übergaben, auf die sich die nächste Schicht verlassen kann.
+          </p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer">
+          <div>
+            <h4>Produkt</h4>
+            <ul>
+              <li><a href="#features">Funktionen</a></li>
+              <li><a href="#how">So funktioniert's</a></li>
+              <li><a href="#pricing">Preise</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Unternehmen</h4>
+            <ul>
+              <li><a href="#contact">Kontakt</a></li>
+              <li><a href="#">Über uns</a></li>
+              <li><a href="#">Karriere</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Rechtliches</h4>
+            <ul>
+              <li><a href="#">Impressum</a></li>
+              <li><a href="#">Datenschutz</a></li>
+              <li><a href="#">AGB</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="container footer-bottom">
+        <p>&copy; <span id="footer-year">2026</span> Schichtübergabe GmbH</p>
+        <p>Made in Germany · Hosting Frankfurt</p>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

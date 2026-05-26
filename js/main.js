@@ -32,7 +32,11 @@
   // Für eine Pre-Launch-Liste akzeptabel; sobald wir echtes Backend
   // haben, wird das hier ersetzt.
   var COUNTER_BASE = "https://abacus.jasoncameron.dev";
-  var COUNTER_NS = "schicht-bergabe";
+  // Namespace einmal gewechselt (von "schicht-bergabe" auf "saaslyde"),
+  // um den Test-Counter zurückzusetzen. abacus erlaubt /set/ und
+  // /delete/ nur mit Admin-Token, den wir bei /hit/-Auto-Create nie
+  // bekommen — neuer Namespace ist der pragmatische Reset auf 0.
+  var COUNTER_NS = "saaslyde";
   var COUNTER_KEY = "waitlist";
   var countEl = document.getElementById("waitlist-count");
   var isEn =

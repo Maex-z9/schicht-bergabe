@@ -3,24 +3,38 @@
   -----------------------------------------
   Mobile-first. System-Font-Stack, keine externen Requests.
   Farben: Stahlblau (#1E3A5F) als Akzent, Grautöne (#F5F5F5, #2C2C2C),
-  Weiß. Industrielle Anmutung: sparsame Rundungen, klare Kanten,
-  ruhige Typo, viel Weißraum.
+  Weiß. Industrielle Anmutung, aber bewusst etwas moderner aufgespielt:
+  großzügigere Typo, weicher Hero-Verlauf, dezente Hover-States,
+  Reveal-Animation beim Scrollen.
 */
 
 :root {
   --c-accent: #1e3a5f;
   --c-accent-dark: #142a47;
-  --c-text: #2c2c2c;
-  --c-muted: #6b6b6b;
+  --c-accent-soft: #2d5688;
+  --c-text: #1a1a1a;
+  --c-text-soft: #2c2c2c;
+  --c-muted: #5a6573;
   --c-bg: #ffffff;
-  --c-bg-alt: #f5f5f5;
-  --c-border: #e3e3e3;
+  --c-bg-alt: #f5f6f8;
+  --c-bg-tint: #eef1f6;
+  --c-border: #e1e4ea;
+  --c-border-strong: #c9cfd9;
 
-  --container: 1080px;
-  --container-narrow: 680px;
+  --container: 1120px;
+  --container-narrow: 700px;
 
-  --radius: 4px;
-  --shadow-card: 0 1px 2px rgba(20, 30, 45, 0.06);
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+
+  --shadow-card: 0 1px 2px rgba(20, 30, 45, 0.04),
+    0 4px 12px rgba(20, 30, 45, 0.04);
+  --shadow-hover: 0 2px 4px rgba(20, 30, 45, 0.06),
+    0 12px 28px rgba(20, 30, 45, 0.09);
+  --shadow-hero: 0 24px 64px -24px rgba(20, 38, 70, 0.35);
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 /* ---------- Reset / base ---------- */
@@ -48,8 +62,8 @@ body {
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
     Cantarell, "Helvetica Neue", Arial, sans-serif;
   font-size: 17px;
-  line-height: 1.6;
-  color: var(--c-text);
+  line-height: 1.65;
+  color: var(--c-text-soft);
   background: var(--c-bg);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -64,7 +78,9 @@ svg {
 a {
   color: var(--c-accent);
   text-decoration: underline;
-  text-underline-offset: 2px;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color 120ms var(--ease);
 }
 
 a:hover {
@@ -76,22 +92,29 @@ h2,
 h3,
 h4 {
   margin: 0 0 0.5em;
-  color: #1a1a1a;
-  line-height: 1.2;
+  color: var(--c-text);
+  line-height: 1.15;
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+}
+
+h1,
+h2 {
+  text-wrap: balance;
 }
 
 h1 {
-  font-size: clamp(1.9rem, 5vw, 3rem);
+  font-size: clamp(2.1rem, 5.6vw, 3.5rem);
+  letter-spacing: -0.025em;
 }
 
 h2 {
-  font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+  font-size: clamp(1.6rem, 3.6vw, 2.4rem);
 }
 
 h3 {
   font-size: 1.1rem;
+  letter-spacing: -0.01em;
 }
 
 p {
@@ -102,8 +125,6 @@ ul {
   margin: 0;
   padding: 0;
 }
-
-/* Sehr breiter "narrow" Reset für interne Sektionen — siehe .narrow */
 
 /* ---------- Utility ---------- */
 
@@ -128,6 +149,7 @@ ul {
   padding: 8px 12px;
   text-decoration: none;
   z-index: 1000;
+  border-radius: var(--radius-sm);
 }
 
 .skip-link:focus {
@@ -139,7 +161,7 @@ ul {
   width: 100%;
   max-width: var(--container);
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 22px;
 }
 
 .narrow {
@@ -153,19 +175,22 @@ ul {
   top: 14px;
   right: 16px;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.85);
   border: 1px solid var(--c-border);
-  border-radius: var(--radius);
-  padding: 6px 10px;
-  font-size: 0.85rem;
-  letter-spacing: 0.04em;
-  backdrop-filter: blur(6px);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 1px 2px rgba(20, 30, 45, 0.04);
 }
 
 .lang-toggle a {
   text-decoration: none;
   color: var(--c-muted);
   padding: 2px 4px;
+  font-weight: 500;
 }
 
 .lang-toggle a.lang-active,
@@ -175,7 +200,7 @@ ul {
 }
 
 .lang-toggle span {
-  color: var(--c-border);
+  color: var(--c-border-strong);
   margin: 0 4px;
 }
 
@@ -183,13 +208,18 @@ ul {
 
 .site-header {
   border-bottom: 1px solid var(--c-border);
-  background: #fff;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
 .header-inner {
   display: flex;
   align-items: center;
-  min-height: 64px;
+  min-height: 68px;
   padding-top: 12px;
   padding-bottom: 12px;
 }
@@ -197,7 +227,7 @@ ul {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   text-decoration: none;
   color: var(--c-accent);
   font-weight: 700;
@@ -205,49 +235,75 @@ ul {
 
 .brand-mark {
   flex: 0 0 auto;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
 }
 
 .brand-name {
   font-size: 1.05rem;
-  letter-spacing: -0.01em;
-  color: #1a1a1a;
+  letter-spacing: -0.015em;
+  color: var(--c-text);
 }
 
 /* ---------- Buttons ---------- */
 
 .btn {
-  display: inline-block;
-  padding: 12px 22px;
-  border-radius: var(--radius);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 26px;
+  border-radius: var(--radius-sm);
   font-weight: 600;
   font-size: 1rem;
   text-decoration: none;
   border: 1px solid transparent;
   cursor: pointer;
   line-height: 1.2;
-  transition: background-color 120ms ease, color 120ms ease;
+  transition:
+    background-color 140ms var(--ease),
+    color 140ms var(--ease),
+    transform 140ms var(--ease),
+    box-shadow 140ms var(--ease);
 }
 
 .btn-primary {
   background: var(--c-accent);
   color: #fff;
+  box-shadow: 0 1px 2px rgba(20, 30, 45, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
   background: var(--c-accent-dark);
   color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(20, 30, 45, 0.18);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
 }
 
 .btn:focus-visible {
   outline: 2px solid var(--c-accent);
-  outline-offset: 2px;
+  outline-offset: 3px;
+}
+
+.btn-arrow {
+  display: inline-block;
+  transition: transform 160ms var(--ease);
+}
+
+.btn:hover .btn-arrow {
+  transform: translateX(3px);
 }
 
 /* ---------- Sections ---------- */
 
 .section {
-  padding: 72px 0;
+  padding: 96px 0;
 }
 
 .section-alt {
@@ -255,36 +311,275 @@ ul {
 }
 
 .section-head {
-  margin-bottom: 40px;
-  max-width: 640px;
+  margin-bottom: 56px;
+  max-width: 680px;
+}
+
+.section-head .eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: 12px;
 }
 
 .section-head p {
   color: var(--c-muted);
   margin-bottom: 0;
+  font-size: 1.08rem;
 }
 
 /* ---------- Hero ---------- */
 
 .hero {
-  padding: 80px 0 72px;
+  padding: 88px 0 96px;
   background:
-    linear-gradient(180deg, #fff 0%, #fff 60%, var(--c-bg-alt) 100%);
+    radial-gradient(
+      ellipse 80% 60% at 80% 0%,
+      rgba(45, 86, 136, 0.08),
+      transparent 60%
+    ),
+    linear-gradient(180deg, #fff 0%, #fff 65%, var(--c-bg-alt) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Dezentes Karo-Pattern als Industrie-Anmutung, sehr leise */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(30, 58, 95, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 58, 95, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 60% at 70% 30%, #000, transparent 70%);
+  -webkit-mask-image: radial-gradient(
+    ellipse 70% 60% at 70% 30%,
+    #000,
+    transparent 70%
+  );
+  pointer-events: none;
 }
 
 .hero-inner {
-  max-width: 760px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
 }
 
-.hero h1 {
-  margin-bottom: 0.3em;
+@media (min-width: 880px) {
+  .hero-inner {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 56px;
+  }
 }
 
-.hero .lede {
-  font-size: clamp(1.05rem, 2vw, 1.25rem);
+.hero-copy h1 {
+  margin-bottom: 0.35em;
+}
+
+.hero-copy .accent-underline {
+  background: linear-gradient(
+    180deg,
+    transparent 65%,
+    rgba(30, 58, 95, 0.18) 65%,
+    rgba(30, 58, 95, 0.18) 92%,
+    transparent 92%
+  );
+  padding: 0 2px;
+}
+
+.hero-copy .lede {
+  font-size: clamp(1.08rem, 1.8vw, 1.28rem);
   color: var(--c-muted);
-  margin-bottom: 1.5em;
-  max-width: 56ch;
+  margin-bottom: 1.8em;
+  max-width: 52ch;
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 26px;
+  margin-top: 26px;
+  font-size: 0.92rem;
+  color: var(--c-muted);
+  list-style: none;
+}
+
+.hero-meta li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-meta svg {
+  color: var(--c-accent);
+}
+
+/* ---------- Hero-Mockup (CSS-only) ---------- */
+
+.hero-visual {
+  display: none;
+}
+
+@media (min-width: 880px) {
+  .hero-visual {
+    display: block;
+    position: relative;
+    perspective: 1400px;
+  }
+}
+
+.mock-card {
+  background: #fff;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-hero);
+  padding: 22px;
+  transform: rotate(-1deg);
+  position: relative;
+  z-index: 2;
+}
+
+.mock-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--c-border);
+  margin-bottom: 14px;
+}
+
+.mock-title {
+  font-weight: 700;
+  color: var(--c-text);
+  font-size: 0.98rem;
+  letter-spacing: -0.005em;
+}
+
+.mock-sub {
+  font-size: 0.82rem;
+  color: var(--c-muted);
+  margin-top: 2px;
+}
+
+.mock-status {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  background: var(--c-bg-tint);
+  color: var(--c-accent);
+  padding: 5px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.mock-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mock-item {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.mock-flag {
+  width: 22px;
+  height: 16px;
+  border-radius: 2px;
+  margin-top: 4px;
+  background: #ddd;
+  display: inline-block;
+  flex: 0 0 auto;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+/* Vereinfachte CSS-Flaggen — bewusst stilisiert, keine externen SVGs */
+.mock-flag-pl {
+  background: linear-gradient(180deg, #fff 50%, #dc143c 50%);
+}
+.mock-flag-tr {
+  background: #e30a17;
+}
+.mock-flag-tr::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 8px 8px, #fff 3px, transparent 3.5px),
+    radial-gradient(circle at 9.5px 8px, #e30a17 2.5px, transparent 3px);
+}
+.mock-flag-de {
+  background: linear-gradient(
+    180deg,
+    #000 0 33%,
+    #dd0000 33% 66%,
+    #ffce00 66%
+  );
+}
+
+.mock-orig {
+  font-size: 0.84rem;
+  color: var(--c-muted);
+  font-style: italic;
+  margin-bottom: 2px;
+  line-height: 1.45;
+}
+
+.mock-trans {
+  font-size: 0.92rem;
+  color: var(--c-text);
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+.mock-foot {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--c-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: var(--c-muted);
+}
+
+.mock-ack {
+  color: #1f7a45;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mock-ack svg {
+  color: #1f7a45;
+}
+
+/* Dezenter zweiter Karten-Schatten dahinter für Tiefe */
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  inset: 14px -8px -18px 14px;
+  background: var(--c-accent);
+  border-radius: var(--radius-lg);
+  opacity: 0.08;
+  z-index: 1;
+  transform: rotate(2deg);
 }
 
 /* ---------- Card-Grid ---------- */
@@ -292,7 +587,7 @@ ul {
 .card-grid {
   list-style: none;
   display: grid;
-  gap: 20px;
+  gap: 22px;
   grid-template-columns: 1fr;
 }
 
@@ -316,16 +611,41 @@ ul {
   background: #fff;
   border: 1px solid var(--c-border);
   border-radius: var(--radius);
-  padding: 24px 22px;
+  padding: 26px 24px;
   box-shadow: var(--shadow-card);
+  position: relative;
+  transition:
+    transform 200ms var(--ease),
+    box-shadow 200ms var(--ease),
+    border-color 200ms var(--ease);
 }
 
-.section-alt .card {
-  background: #fff;
+.card::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 24px;
+  right: 24px;
+  height: 2px;
+  background: var(--c-accent);
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 200ms var(--ease);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--c-border-strong);
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .card h3 {
-  margin: 0 0 6px;
+  margin: 0 0 8px;
+  color: var(--c-text);
 }
 
 .card p {
@@ -338,32 +658,115 @@ ul {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius);
-  background: var(--c-bg-alt);
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: var(--c-bg-tint);
   color: var(--c-accent);
-  margin-bottom: 14px;
+  margin-bottom: 18px;
+  transition: background-color 200ms var(--ease);
 }
 
-.section-alt .card-icon {
-  background: var(--c-bg-alt);
+.card:hover .card-icon {
+  background: var(--c-accent);
+  color: #fff;
+}
+
+/* ---------- Über (founder block) ---------- */
+
+#ueber .container,
+#about .container {
+  position: relative;
+}
+
+#ueber p,
+#about p {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: var(--c-text-soft);
+}
+
+#ueber p::first-letter,
+#about p::first-letter {
+  font-weight: 700;
+  color: var(--c-accent);
 }
 
 /* ---------- Pricing-Teaser ---------- */
 
+.pricing-card {
+  background: linear-gradient(160deg, var(--c-accent) 0%, var(--c-accent-dark) 100%);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: 44px 36px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-hero);
+}
+
+.pricing-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 60% 80% at 100% 0%,
+      rgba(255, 255, 255, 0.08),
+      transparent 60%
+    );
+  pointer-events: none;
+}
+
+.pricing-card h2 {
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.pricing-card .eyebrow {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
 .pricing-headline {
-  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
-  color: #1a1a1a;
-  margin-bottom: 0.2em;
+  font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+  font-weight: 700;
+  margin: 18px 0 6px;
+  letter-spacing: -0.02em;
+  color: #fff;
 }
 
 .pricing-sub {
-  color: var(--c-muted);
-  margin-bottom: 1.4em;
+  color: rgba(255, 255, 255, 0.78);
+  margin-bottom: 28px;
+  font-size: 1rem;
+}
+
+.pricing-card .btn-primary {
+  background: #fff;
+  color: var(--c-accent);
+}
+
+.pricing-card .btn-primary:hover,
+.pricing-card .btn-primary:focus {
+  background: var(--c-bg-tint);
+  color: var(--c-accent-dark);
 }
 
 /* ---------- Warteliste / Form ---------- */
+
+.waitlist-card {
+  background: #fff;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  box-shadow: var(--shadow-card);
+}
 
 .waitlist-form {
   display: flex;
@@ -384,19 +787,20 @@ ul {
 }
 
 .waitlist-form input[type="email"] {
-  padding: 12px 14px;
-  border: 1px solid var(--c-border);
-  border-radius: var(--radius);
+  padding: 14px 16px;
+  border: 1px solid var(--c-border-strong);
+  border-radius: var(--radius-sm);
   font-size: 1rem;
   font-family: inherit;
   color: var(--c-text);
   background: #fff;
+  transition: border-color 140ms var(--ease), box-shadow 140ms var(--ease);
 }
 
 .waitlist-form input[type="email"]:focus {
-  outline: 2px solid var(--c-accent);
-  outline-offset: 1px;
+  outline: none;
   border-color: var(--c-accent);
+  box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.15);
 }
 
 .waitlist-form .btn {
@@ -407,8 +811,8 @@ ul {
   width: 100%;
   margin: 0;
   font-size: 0.95rem;
-  padding: 12px 14px;
-  border-radius: var(--radius);
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
 }
 
 .form-error {
@@ -418,8 +822,8 @@ ul {
 }
 
 .form-success {
-  background: #f0f6ee;
-  border: 1px solid #c5dcc1;
+  background: #f0f7f1;
+  border: 1px solid #b9d6bf;
   color: #1f5d2f;
   margin-top: 8px;
 }
@@ -429,7 +833,7 @@ ul {
 .site-footer {
   border-top: 1px solid var(--c-border);
   background: #fff;
-  padding: 28px 0 36px;
+  padding: 36px 0 44px;
   margin-top: 0;
   color: var(--c-muted);
   font-size: 0.92rem;
@@ -438,7 +842,7 @@ ul {
 .footer-inner {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   align-items: flex-start;
   justify-content: space-between;
 }
@@ -458,7 +862,7 @@ ul {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 18px;
+  gap: 22px;
 }
 
 .footer-links a {
@@ -474,7 +878,7 @@ ul {
 /* ---------- Legal pages ---------- */
 
 .legal h2 {
-  margin-top: 1.6em;
+  margin-top: 1.8em;
   font-size: 1.2rem;
 }
 
@@ -485,4 +889,33 @@ ul {
 
 .legal li {
   margin-bottom: 0.3em;
+}
+
+/* ---------- Reveal-on-scroll ---------- */
+
+/*
+  Wird per IntersectionObserver in main.js getriggert. Wir markieren
+  Elemente serverseitig nicht — JS fügt die Klasse hinzu und entfernt
+  sie wieder, wenn das Element sichtbar wird. Ohne JS bleiben alle
+  Elemente normal sichtbar (kein FOUC).
+*/
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 600ms var(--ease), transform 600ms var(--ease);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

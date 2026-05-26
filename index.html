@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Schichtübergabe für mehrsprachige Werkstätten</title>
+    <meta
+      name="description"
+      content="Schluss mit Zettelwirtschaft in der Werkstatt. Jeder schreibt die Übergabe in seiner Sprache, jeder liest sie in seiner."
+    />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="./index.html" />
+    <link rel="alternate" hreflang="de" href="./index.html" />
+    <link rel="alternate" hreflang="en" href="./index.en.html" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231E3A5F'/%3E%3Cpath d='M8 11h16M8 16h16M8 21h10' stroke='%23fff' stroke-width='2.5' stroke-linecap='square'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+    <!--
+      Sprach-Toggle: Spec verlangt fixed oben rechts, Buttons "DE | EN".
+      Wir nutzen <a>-Elemente statt <button>, weil der Wechsel ein
+      einfacher Seitenlink ist (kein JS-i18n) – semantisch korrekter,
+      funktioniert auch ohne JS.
+    -->
+    <div class="lang-toggle" role="navigation" aria-label="Sprache">
+      <a href="index.html" aria-current="page" class="lang-active">DE</a>
+      <span aria-hidden="true">|</span>
+      <a href="index.en.html">EN</a>
+    </div>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="Schichtübergabe — Startseite">
+          <svg
+            class="brand-mark"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            aria-hidden="true"
+          >
+            <rect width="32" height="32" fill="currentColor" />
+            <path
+              d="M8 11h16M8 16h16M8 21h10"
+              stroke="#fff"
+              stroke-width="2.5"
+              stroke-linecap="square"
+            />
+          </svg>
+          <span class="brand-name">Schichtübergabe</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- 1. Hero -->
+      <section class="hero" id="top">
+        <div class="container hero-inner">
+          <h1>Schichtübergabe für mehrsprachige Werkstätten</h1>
+          <p class="lede">
+            Schluss mit Zettelwirtschaft. Jeder schreibt in seiner Sprache,
+            jeder liest in seiner.
+          </p>
+          <p>
+            <a class="btn btn-primary" href="#warteliste">
+              Auf die Warteliste
+            </a>
+          </p>
+        </div>
+      </section>
+
+      <!-- 2. Problem -->
+      <section class="section" id="problem">
+        <div class="container">
+          <header class="section-head">
+            <h2>Das Problem</h2>
+            <p>
+              Was am Schichtwechsel jeden Tag schiefgeht — und Zeit, Material
+              und Nerven kostet.
+            </p>
+          </header>
+
+          <ul class="card-grid card-grid-4">
+            <li class="card">
+              <span class="card-icon" aria-hidden="true">
+                <!-- Zettel-Icon -->
+                <svg width="28" height="28" viewBox="0 0 24 24">
+                  <path
+                    d="M6 3h9l4 4v14H6z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linejoin="miter"
+                  />
+                  <path
+                    d="M15 3v4h4"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  />
+                  <path
+                    d="M9 12h6M9 16h6"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  />
+                </svg>
+              </span>
+              <h3>Zettel verschwinden</h3>
+              <p>
+                Notizen liegen unter dem Schraubstock, im Spind oder im
+                Mülleimer. Die Spätschicht fängt blind an.
+              </p>
+            </li>
+
+            <li class="card">
+              <span class="card-icon" aria-hidden="true">
+                <!-- Sprach-Icon -->
+                <svg width="28" height="28" viewBox="0 0 24 24">
+                  <path
+                    d="M3 5h10v8H7l-4 4V5z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linejoin="miter"
+                  />
+                  <path
+                    d="M11 11h10v8h-4l-3 3v-3"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linejoin="miter"
+                  />
+                </svg>
+              </span>
+              <h3>Sprachbarrieren</h3>
+              <p>
+                Polnisch, Türkisch, Rumänisch, Deutsch — geschrieben wird,
+                was geht. Verstanden wird, was übrig bleibt.
+              </p>
+            </li>
+
+            <li class="card">
+              <span class="card-icon" aria-hidden="true">
+                <!-- Werkzeug-Icon -->
+                <svg width="28" height="28" viewBox="0 0 24 24">
+                  <path
+                    d="M14 4l-2 2 4 4 2-2-4-4zM3 21l8-8M11 13l3-3"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linejoin="miter"
+                  />
+                </svg>
+              </span>
+              <h3>Werkzeug-Chaos</h3>
+              <p>
+                Wer hat den Drehmomentschlüssel? Welche Maschine läuft noch?
+                Die halbe Schicht geht für Suchen drauf.
+              </p>
+            </li>
+
+            <li class="card">
+              <span class="card-icon" aria-hidden="true">
+                <!-- Wissen-Icon -->
+                <svg width="28" height="28" viewBox="0 0 24 24">
+                  <path
+                    d="M4 5h7a3 3 0 013 3v12a3 3 0 00-3-3H4V5zM20 5h-7a3 3 0 00-3 3v12a3 3 0 013-3h7V5z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linejoin="miter"
+                  />
+                </svg>
+              </span>
+              <h3>Wissen geht verloren</h3>
+              <p>
+                Was gestern auffiel, weiß heute keiner mehr. Probleme tauchen
+                wieder auf — immer wieder.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 3. Lösung -->
+      <section class="section section-alt" id="loesung">
+        <div class="container">
+          <header class="section-head">
+            <h2>Die Lösung</h2>
+            <p>
+              Ein digitales Übergabe-Heft, das jede Sprache spricht — und
+              nichts vergisst.
+            </p>
+          </header>
+
+          <ul class="card-grid card-grid-3">
+            <li class="card">
+              <span class="card-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24">
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="9"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  />
+                  <path
+                    d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  />
+                </svg>
+              </span>
+              <h3>Automatische Übersetzung</h3>
+              <p>
+                Jeder schreibt in seiner Sprache. Kollegen lesen in ihrer.
+                Funktioniert für DE, EN, PL, TR, RO, RU und mehr.
+              </p>
+            </li>
+
+            <li class="card">
+              <span class="card-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24">
+                  <path
+                    d="M5 4h14v16H5z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linejoin="miter"
+                  />
+                  <path
+                    d="M8 9h8M8 13h8M8 17h5"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  />
+                </svg>
+              </span>
+              <h3>Strukturierte Vorlagen</h3>
+              <p>
+                Maschine, Auftrag, Werkzeug, offene Punkte. Vorgegebene
+                Felder statt freier Prosa.
+              </p>
+            </li>
+
+            <li class="card">
+              <span class="card-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24">
+                  <path
+                    d="M5 12l4 4 10-10"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="square"
+                  />
+                </svg>
+              </span>
+              <h3>Quittierung</h3>
+              <p>
+                Wer die Schicht übernimmt, bestätigt jeden Punkt. Nichts
+                geht unter, Verantwortung ist klar.
+              </p>
+            </li>
+
+            <li class="card">
+              <span class="card-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24">
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="9"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  />
+                  <path
+                    d="M12 7v5l3 2"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linecap="square"
+                  />
+                </svg>
+              </span>
+              <h3>Volle Historie</h3>
+              <p>
+                Jede Übergabe bleibt suchbar. Wiederkehrende Probleme werden
+                sichtbar, statt erneut zu passieren.
+              </p>
+            </li>
+
+            <li class="card">
+              <span class="card-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24">
+                  <rect
+                    x="4"
+                    y="5"
+                    width="16"
+                    height="12"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  />
+                  <path
+                    d="M4 9h16M8 13h4"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  />
+                </svg>
+              </span>
+              <h3>Werkzeug-Übersicht</h3>
+              <p>
+                Wer hat was, welche Maschine läuft, was steht still — auf
+                einen Blick, statt durch die Halle zu rennen.
+              </p>
+            </li>
+
+            <li class="card">
+              <span class="card-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24">
+                  <rect
+                    x="6"
+                    y="3"
+                    width="12"
+                    height="18"
+                    rx="1"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  />
+                  <path
+                    d="M10 18h4"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  />
+                </svg>
+              </span>
+              <h3>Auf jedem Gerät</h3>
+              <p>
+                Handy, Tablet, Werkstatt-PC. Im Browser, ohne Installation,
+                ohne IT-Abteilung.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 4. Über -->
+      <section class="section" id="ueber">
+        <div class="container narrow">
+          <header class="section-head">
+            <h2>Wer dahinter steckt</h2>
+          </header>
+          <p>
+            Schichtübergabe wird von einem ehemaligen Zerspanungs­mechaniker
+            gebaut — acht Jahre an der Maschine, danach IT. Das Problem mit
+            den verschwundenen Zetteln und den unverstandenen Übergaben
+            kenne ich aus erster Hand. Genau deswegen entsteht dieses
+            Werkzeug: gebaut von jemandem, der weiß, wie's in der Halle
+            wirklich läuft.
+          </p>
+        </div>
+      </section>
+
+      <!-- 5. Pricing-Teaser -->
+      <section class="section section-alt" id="pricing">
+        <div class="container narrow">
+          <header class="section-head">
+            <h2>Preis</h2>
+          </header>
+          <p class="pricing-headline">
+            <strong>Ab 39 € / Monat pro Standort.</strong>
+          </p>
+          <p class="pricing-sub">
+            Frühe Nutzer: 50 % im ersten Jahr.
+          </p>
+          <p>
+            <a class="btn btn-primary" href="#warteliste">
+              Auf die Warteliste
+            </a>
+          </p>
+        </div>
+      </section>
+
+      <!-- 6. Warteliste -->
+      <section class="section" id="warteliste">
+        <div class="container narrow">
+          <header class="section-head">
+            <h2>Auf die Warteliste</h2>
+            <p>
+              Erste 20 Kunden: <strong>50 % Rabatt</strong> + persönliches
+              Onboarding.
+            </p>
+          </header>
+
+          <!--
+            Formspree-Endpoint als Platzhalter. Vor Deploy ersetzen
+            (siehe README.md). Bei fehlendem/unverändertem Platzhalter
+            zeigt main.js eine Hinweis-Fehlermeldung statt einen
+            kaputten Request abzusetzen.
+          -->
+          <form
+            id="waitlist-form"
+            class="waitlist-form"
+            action="FORMSPREE_URL_HIER"
+            method="post"
+            novalidate
+          >
+            <label for="email" class="sr-only">E-Mail-Adresse</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              autocomplete="email"
+              placeholder="deine@email.de"
+            />
+            <button type="submit" class="btn btn-primary">
+              Eintragen
+            </button>
+            <p
+              class="form-message form-error"
+              id="waitlist-error"
+              hidden
+              role="alert"
+            ></p>
+          </form>
+
+          <div
+            class="form-message form-success"
+            id="waitlist-success"
+            hidden
+            role="status"
+          >
+            <strong>Danke!</strong> Du stehst auf der Liste. Wir melden uns,
+            sobald es losgeht.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>&copy; <span id="footer-year">2026</span> Schichtübergabe</p>
+        <nav aria-label="Footer">
+          <ul class="footer-links">
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li>
+              <!--
+                mailto-Adresse als Platzhalter; vor Deploy auf echte
+                Kontaktadresse anpassen.
+              -->
+              <a href="mailto:kontakt@schichtuebergabe.example"
+                >Kontakt</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+  </body>
+</html>

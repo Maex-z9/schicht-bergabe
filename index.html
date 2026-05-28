@@ -56,7 +56,7 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="css/style.css?v=2" />
+    <link rel="stylesheet" href="css/style.css?v=3" />
 
     <script type="application/ld+json">
     {
@@ -325,15 +325,16 @@
             </p>
 
             <!--
-              Formspree endpoint: before deploy, replace "DEINE_FORMULAR_ID"
-              in `action` with the real Formspree form ID (see README).
-              While the placeholder is in place, main.js blocks the submit
-              and shows a friendly error instead of firing a broken POST.
+              FormSubmit AJAX endpoint. The hash in the URL stands in
+              for the recipient email (saaslyde@zohomail.eu) so it isn't
+              exposed to scrapers. Hidden fields configure the
+              notification: subject line, honeypot, plain-text template,
+              no captcha (re-enable if spam arrives).
             -->
             <form
               id="waitlist-form"
               class="waitlist-form"
-              action="https://formspree.io/f/DEINE_FORMULAR_ID"
+              action="https://formsubmit.co/ajax/c7cb21cb88e011be1240561a926fe498"
               method="post"
               novalidate
             >
@@ -346,6 +347,10 @@
                 autocomplete="email"
                 placeholder="name@company.com"
               />
+              <input type="hidden" name="_subject" value="New waitlist signup — Certificate Tracker" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true" />
               <button type="submit" class="btn btn-primary">
                 Join the beta
                 <span class="btn-arrow" aria-hidden="true">→</span>
@@ -394,6 +399,6 @@
       </div>
     </footer>
 
-    <script src="js/main.js?v=2" defer></script>
+    <script src="js/main.js?v=3" defer></script>
   </body>
 </html>

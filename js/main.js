@@ -1,14 +1,17 @@
 /*
-  Zertifikats-Tracker — main.js
+  Certificate Tracker — main.js
   -----------------------------
-  Zwei kleine Sachen:
-  1. Footer-Jahr dynamisch setzen.
-  2. Warteliste-Formular per fetch an Formspree senden, Erfolg/Fehler
-     inline anzeigen (kein Redirect, kein Reload).
+  Two small things:
+  1. Set footer year dynamically.
+  2. Submit the waitlist form via fetch to FormSubmit (formsubmit.co)
+     and show success/error inline (no redirect, no reload).
 
-  Formspree-Endpoint steckt im action-Attribut. Solange dort
-  "DEINE_FORMULAR_ID" steht (Platzhalter aus dem Setup), blockt das
-  Skript den Submit und zeigt eine sprechende Fehlermeldung.
+  FormSubmit endpoint lives in the form's action attribute. The path
+  segment is a hash that stands in for the recipient email so it isn't
+  exposed to scrapers. FormSubmit responds with HTTP 200 in both
+  success and validation-error cases — distinguish via `success` in
+  the JSON body. A hidden _honey field catches naive bots; we drop
+  submissions that fill it.
 */
 
 (function () {
@@ -25,11 +28,10 @@
   var successEl = document.getElementById("waitlist-success");
   var errorEl = document.getElementById("waitlist-error");
   var emailInput = form.querySelector('input[type="email"]');
+  var honeyInput = form.querySelector('input[name="_honey"]');
 
   var msgs = {
     invalid: "Please enter a valid email address.",
-    placeholder:
-      "The form isn't configured yet. Please contact us directly by email.",
     network: "Something went wrong. Please try again.",
   };
 
@@ -62,15 +64,17 @@
       return;
     }
 
-    var endpoint = form.getAttribute("action");
-    if (!endpoint || endpoint.indexOf("DEINE_FORMULAR_ID") !== -1) {
-      showError(msgs.placeholder);
+    // Honeypot: if a bot filled the hidden field, pretend success and
+    // never send anything. Real users can't see the field.
+    if (honeyInput && honeyInput.value) {
+      showSuccess();
       return;
     }
 
     var submitBtn = form.querySelector('button[type="submit"]');
     if (submitBtn) submitBtn.disabled = true;
 
+    var endpoint = form.getAttribute("action");
     var data = new FormData(form);
 
     fetch(endpoint, {
@@ -79,28 +83,25 @@
       headers: { Accept: "application/json" },
     })
       .then(function (resp) {
-        if (resp.ok) {
-          showSuccess();
-          return;
-        }
-        // Formspree liefert bei Validierungsfehlern JSON mit "errors":
-        // [{ message: "...", field: "..." }, ...]
         return resp
           .json()
           .catch(function () {
             return null;
           })
           .then(function (json) {
-            var msg = msgs.network;
-            if (json && json.errors && json.errors.length) {
-              msg = json.errors
-                .map(function (err) {
-                  return err.message || "";
-                })
-                .filter(Boolean)
-                .join(" ");
+            // FormSubmit AJAX: { success: "true"|"false", message: "..." }
+            // Coerce to boolean since they send the value as a string.
+            var ok =
+              resp.ok &&
+              json &&
+              (json.success === true ||
+                json.success === "true");
+            if (ok) {
+              showSuccess();
+              return;
             }
-            showError(msg || msgs.network);
+            var msg = (json && json.message) || msgs.network;
+            showError(msg);
             if (submitBtn) submitBtn.disabled = false;
           });
       })

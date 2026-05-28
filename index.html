@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Zertifikats-Tracker — Fristen im Griff, bevor sie ablaufen</title>
+    <title>Certificate Tracker — deadlines under control before they pass</title>
     <meta
       name="description"
-      content="Ablaufende Zertifikate und Lizenzen automatisch im Blick. Erinnerungen 90, 60, 30, 14 und 7 Tage vor Fristende — Schluss mit Excel-Listen und Haftungsrisiko."
+      content="Stay on top of expiring employee certificates and licenses. Automatic reminders 90, 60, 30, 14 and 7 days before the deadline — no more spreadsheets, no more liability."
     />
     <meta name="robots" content="index,follow" />
     <meta name="theme-color" content="#f4f1e9" />
@@ -14,27 +14,27 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Zertifikats-Tracker" />
+    <meta property="og:site_name" content="Certificate Tracker" />
     <meta
       property="og:title"
-      content="Zertifikats-Tracker — Fristen im Griff, bevor sie ablaufen"
+      content="Certificate Tracker — deadlines under control before they pass"
     />
     <meta
       property="og:description"
-      content="Ablaufende Zertifikate und Lizenzen automatisch im Blick. Erinnerungen 90, 60, 30, 14 und 7 Tage vor Fristende."
+      content="Stay on top of expiring employee certificates. Automatic reminders 90, 60, 30, 14 and 7 days before the deadline."
     />
     <meta property="og:url" content="https://saaslyde.org/" />
     <meta property="og:image" content="https://saaslyde.org/assets/og.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="de_DE" />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Zertifikats-Tracker — Fristen im Griff" />
+    <meta name="twitter:title" content="Certificate Tracker — deadlines under control" />
     <meta
       name="twitter:description"
-      content="Ablaufende Zertifikate automatisch im Blick. Erinnerungen 90/60/30/14/7 Tage vor Fristende."
+      content="Automatic reminders 90/60/30/14/7 days before certificates expire."
     />
     <meta name="twitter:image" content="https://saaslyde.org/assets/og.png" />
 
@@ -42,10 +42,6 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231f5d4c'/%3E%3Cpath d='M9 16l5 5 9-11' stroke='%23f4f1e9' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E"
     />
-    <!--
-      Plex selbst gehostet (siehe assets/fonts/). Preload nur des
-      kritischen Body-Cuts, um den Render nicht zu blockieren.
-    -->
     <link
       rel="preload"
       href="assets/fonts/IBMPlexSans-Regular.woff2"
@@ -60,19 +56,18 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="css/style.css?v=1" />
+    <link rel="stylesheet" href="css/style.css?v=2" />
 
-    <!-- Strukturierte Daten: Compliance-Tool als SoftwareApplication. -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "Zertifikats-Tracker",
-      "description": "Software zur Verwaltung ablaufender Zertifikate, Lizenzen und Schulungsnachweise von Mitarbeitern. Erinnert automatisch 90/60/30/14/7 Tage vor Ablauf.",
+      "name": "Certificate Tracker",
+      "description": "Software for tracking expiring employee certificates, licenses and mandatory training. Sends automatic reminders 90/60/30/14/7 days before expiry.",
       "url": "https://saaslyde.org/",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
-      "inLanguage": "de",
+      "inLanguage": "en",
       "offers": {
         "@type": "Offer",
         "availability": "https://schema.org/PreOrder"
@@ -81,11 +76,11 @@
     </script>
   </head>
   <body>
-    <a class="skip-link" href="#main">Zum Inhalt springen</a>
+    <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="#top" aria-label="Zertifikats-Tracker — Startseite">
+        <a class="brand" href="#top" aria-label="Certificate Tracker — home">
           <span class="brand-mark" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 32 32">
               <path
@@ -98,9 +93,9 @@
               />
             </svg>
           </span>
-          <span class="brand-name">Zertifikats-Tracker</span>
+          <span class="brand-name">Certificate Tracker</span>
         </a>
-        <span class="header-meta">Compliance-Tool für Betriebe</span>
+        <span class="header-meta">Compliance tool for employers</span>
       </div>
     </header>
 
@@ -108,50 +103,49 @@
       <!-- HERO -->
       <section class="hero" id="top">
         <div class="container hero-inner">
-          <p class="eyebrow">Beta · Warteliste offen</p>
+          <p class="eyebrow">Beta · Waitlist open</p>
           <h1>
-            Ein vergessenes Zertifikat&nbsp;—
-            <span class="strike">Arbeitsverbot</span>,
-            <span class="strike">Haftung</span>,
-            <span class="strike">Stillstand</span>.
+            One expired certificate&nbsp;—
+            <span class="strike">work ban</span>,
+            <span class="strike">liability</span>,
+            <span class="strike">downtime</span>.
           </h1>
           <p class="lede">
-            Zertifikats-Tracker behält Lizenzen, Befähigungen und
-            Pflichtschulungen deiner Mitarbeiter im Blick. 90, 60, 30,
-            14 und 7 Tage vor Ablauf gibt's automatisch Bescheid —
-            an Personalabteilung und Mitarbeiter. Excel-Liste raus,
-            Übersicht rein.
+            Certificate Tracker keeps your team's licenses, qualifications
+            and mandatory training in sight. 90, 60, 30, 14 and 7 days
+            before expiry it sends automatic reminders — to HR and to the
+            employee. Drop the spreadsheets, get the overview.
           </p>
           <p class="hero-cta">
-            <a class="btn btn-primary" href="#warteliste">
-              Zum Test anmelden
+            <a class="btn btn-primary" href="#waitlist">
+              Join the beta
               <span class="btn-arrow" aria-hidden="true">→</span>
             </a>
           </p>
         </div>
       </section>
 
-      <!-- PRODUKT-MOCKUP -->
-      <section class="section section-mockup" aria-label="Produkt-Vorschau">
+      <!-- PRODUCT MOCKUP -->
+      <section class="section section-mockup" aria-label="Product preview">
         <div class="container">
           <h2 class="section-title">
-            Eine Übersicht. Drei Stati. Keine Überraschungen.
+            One overview. Three states. No surprises.
           </h2>
 
-          <ul class="cert-list" aria-label="Beispiel-Zertifikate (Vorschau)">
+          <ul class="cert-list" aria-label="Sample certificates (preview)">
             <li class="cert-card cert-ok">
               <header class="cert-head">
                 <div>
-                  <div class="cert-title">Staplerschein G25</div>
-                  <div class="cert-person">Markus K. · Personal-Nr. 2034</div>
+                  <div class="cert-title">Forklift license G25</div>
+                  <div class="cert-person">Markus K. · Employee #2034</div>
                 </div>
-                <span class="status status-ok">Gültig</span>
+                <span class="status status-ok">Valid</span>
               </header>
               <div class="cert-expiry">
-                Läuft ab am <span class="mono">2027-03-15</span>
-                <span class="cert-remaining mono">in 412 Tagen</span>
+                Expires on <span class="mono">2027-03-15</span>
+                <span class="cert-remaining mono">in 412 days</span>
               </div>
-              <ol class="reminder-bar" aria-label="Erinnerungen vor Ablauf">
+              <ol class="reminder-bar" aria-label="Reminders before expiry">
                 <li class="r-mark">
                   <span class="r-dot"></span><span class="r-label mono">90</span>
                 </li>
@@ -173,16 +167,16 @@
             <li class="cert-card cert-soon">
               <header class="cert-head">
                 <div>
-                  <div class="cert-title">FFP3-Maskenschulung</div>
-                  <div class="cert-person">Anna L. · Personal-Nr. 1218</div>
+                  <div class="cert-title">FFP3 mask training</div>
+                  <div class="cert-person">Anna L. · Employee #1218</div>
                 </div>
-                <span class="status status-soon">Läuft bald ab</span>
+                <span class="status status-soon">Expires soon</span>
               </header>
               <div class="cert-expiry">
-                Läuft ab am <span class="mono">2026-06-19</span>
-                <span class="cert-remaining mono">in 22 Tagen</span>
+                Expires on <span class="mono">2026-06-19</span>
+                <span class="cert-remaining mono">in 22 days</span>
               </div>
-              <ol class="reminder-bar" aria-label="Erinnerungen vor Ablauf">
+              <ol class="reminder-bar" aria-label="Reminders before expiry">
                 <li class="r-mark r-done">
                   <span class="r-dot"></span><span class="r-label mono">90</span>
                 </li>
@@ -204,16 +198,16 @@
             <li class="cert-card cert-crit">
               <header class="cert-head">
                 <div>
-                  <div class="cert-title">Erste-Hilfe-Ausbildung</div>
-                  <div class="cert-person">Tomek W. · Personal-Nr. 0871</div>
+                  <div class="cert-title">First-aid training</div>
+                  <div class="cert-person">Tomek W. · Employee #0871</div>
                 </div>
-                <span class="status status-crit">Kritisch</span>
+                <span class="status status-crit">Critical</span>
               </header>
               <div class="cert-expiry">
-                Läuft ab am <span class="mono">2026-06-01</span>
-                <span class="cert-remaining mono">in 4 Tagen</span>
+                Expires on <span class="mono">2026-06-01</span>
+                <span class="cert-remaining mono">in 4 days</span>
               </div>
-              <ol class="reminder-bar" aria-label="Erinnerungen vor Ablauf">
+              <ol class="reminder-bar" aria-label="Reminders before expiry">
                 <li class="r-mark r-done">
                   <span class="r-dot"></span><span class="r-label mono">90</span>
                 </li>
@@ -234,14 +228,14 @@
           </ul>
 
           <p class="mockup-note">
-            Beispiel-Daten. Echte Übersicht zeigt alle Zertifikate deiner
-            Belegschaft, filterbar nach Bereich, Person und Frist.
+            Sample data. The real dashboard shows every certificate across
+            your workforce — filterable by team, person and deadline.
           </p>
         </div>
       </section>
 
-      <!-- NUTZEN -->
-      <section class="section section-benefits" id="nutzen">
+      <!-- BENEFITS -->
+      <section class="section section-benefits" id="benefits">
         <div class="container">
           <ul class="benefit-list">
             <li class="benefit">
@@ -264,11 +258,10 @@
                   />
                 </svg>
               </span>
-              <h3>Fünf Erinnerungen, automatisch</h3>
+              <h3>Five reminders, automatically</h3>
               <p>
-                90, 60, 30, 14 und 7 Tage vor Ablauf — per E-Mail an
-                Personalabteilung und Mitarbeiter. Keine Frist rutscht
-                durch.
+                90, 60, 30, 14 and 7 days before expiry — by email to HR
+                and to the employee. No deadline slips through.
               </p>
             </li>
             <li class="benefit">
@@ -284,11 +277,11 @@
                   <path d="M8 13h4M8 16h6" stroke="currentColor" stroke-width="1.6"/>
                 </svg>
               </span>
-              <h3>Eine Übersicht für alle</h3>
+              <h3>One dashboard for everyone</h3>
               <p>
-                Schluss mit verstreuten Excel-Listen. Personen, Bereiche
-                und Zertifikate auf einer Seite — durchsuchbar, filterbar,
-                exportierbar.
+                No more scattered spreadsheets. People, teams and
+                certificates on one page — searchable, filterable,
+                exportable.
               </p>
             </li>
             <li class="benefit">
@@ -311,34 +304,31 @@
                   />
                 </svg>
               </span>
-              <h3>Audit-Nachweis auf Knopfdruck</h3>
+              <h3>Audit-ready in one click</h3>
               <p>
-                Wer wann was nachgewiesen hat — als PDF-Report exportierbar.
-                Bei Prüfungen, Audits oder Versicherungsfragen
-                vorbereitet.
+                Who certified what and when — export as a PDF report.
+                Ready for inspections, audits or insurance reviews.
               </p>
             </li>
           </ul>
         </div>
       </section>
 
-      <!-- WARTELISTE -->
-      <section class="section section-waitlist" id="warteliste">
+      <!-- WAITLIST -->
+      <section class="section section-waitlist" id="waitlist">
         <div class="container narrow">
           <div class="waitlist-card">
-            <h2 class="section-title">Zum Test anmelden.</h2>
+            <h2 class="section-title">Join the beta.</h2>
             <p class="waitlist-sub">
-              Wir öffnen die Beta für die ersten Betriebe.
-              Trag deine E-Mail-Adresse ein — sobald wir bereit sind,
-              meldest du dich an.
+              We're opening the beta to the first companies. Drop your
+              email — we'll be in touch as soon as we're ready.
             </p>
 
             <!--
-              Formspree-Endpoint: vor Deploy in `action` die ID
-              "DEINE_FORMULAR_ID" durch die echte Formspree-Form-ID
-              ersetzen (siehe README). Solange der Platzhalter
-              drinsteht, blockt main.js den Submit und zeigt eine
-              sprechende Fehlermeldung statt einen kaputten POST.
+              Formspree endpoint: before deploy, replace "DEINE_FORMULAR_ID"
+              in `action` with the real Formspree form ID (see README).
+              While the placeholder is in place, main.js blocks the submit
+              and shows a friendly error instead of firing a broken POST.
             -->
             <form
               id="waitlist-form"
@@ -347,17 +337,17 @@
               method="post"
               novalidate
             >
-              <label for="email" class="sr-only">E-Mail-Adresse</label>
+              <label for="email" class="sr-only">Email address</label>
               <input
                 id="email"
                 name="email"
                 type="email"
                 required
                 autocomplete="email"
-                placeholder="vorname.nachname@firma.de"
+                placeholder="name@company.com"
               />
               <button type="submit" class="btn btn-primary">
-                Zum Test anmelden
+                Join the beta
                 <span class="btn-arrow" aria-hidden="true">→</span>
               </button>
               <p
@@ -374,14 +364,14 @@
               hidden
               role="status"
             >
-              <strong>Danke.</strong> Du stehst auf der Liste —
-              wir melden uns, sobald die Beta öffnet.
+              <strong>Thanks.</strong> You're on the list — we'll reach
+              out when the beta opens.
             </div>
           </div>
 
           <p class="waitlist-foot">
-            Wir senden ausschließlich produktbezogene Nachrichten zu
-            Beta-Start und Onboarding. Kein Newsletter, kein Tracking.
+            Only product-related emails about beta launch and onboarding.
+            No newsletter, no tracking.
           </p>
         </div>
       </section>
@@ -390,20 +380,20 @@
     <footer class="site-footer">
       <div class="container footer-inner">
         <p class="footer-copy">
-          &copy; <span id="footer-year">2026</span> Zertifikats-Tracker
+          &copy; <span id="footer-year">2026</span> Certificate Tracker
         </p>
         <nav aria-label="Footer">
           <ul class="footer-links">
-            <li><a href="impressum.html">Impressum</a></li>
-            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="impressum.html">Imprint</a></li>
+            <li><a href="datenschutz.html">Privacy</a></li>
             <li>
-              <a href="mailto:saaslyde@zohomail.eu">Kontakt</a>
+              <a href="mailto:saaslyde@zohomail.eu">Contact</a>
             </li>
           </ul>
         </nav>
       </div>
     </footer>
 
-    <script src="js/main.js?v=1" defer></script>
+    <script src="js/main.js?v=2" defer></script>
   </body>
 </html>

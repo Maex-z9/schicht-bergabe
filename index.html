@@ -3,513 +3,350 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Schichtübergabe für mehrsprachige Werkstätten</title>
+    <title>Zertifikats-Tracker — Fristen im Griff, bevor sie ablaufen</title>
     <meta
       name="description"
-      content="Digitale Schichtübergabe für mehrsprachige Werkstätten — jeder schreibt in seiner Sprache, jeder liest in seiner. DSGVO-konform, kein Setup."
+      content="Ablaufende Zertifikate und Lizenzen automatisch im Blick. Erinnerungen 90, 60, 30, 14 und 7 Tage vor Fristende — Schluss mit Excel-Listen und Haftungsrisiko."
     />
     <meta name="robots" content="index,follow" />
-    <meta name="theme-color" content="#0a1224" />
+    <meta name="theme-color" content="#f4f1e9" />
     <link rel="canonical" href="https://saaslyde.org/" />
-    <link rel="alternate" hreflang="de" href="https://saaslyde.org/" />
-    <link rel="alternate" hreflang="en" href="https://saaslyde.org/index.en.html" />
-    <link rel="alternate" hreflang="x-default" href="https://saaslyde.org/" />
 
-    <!-- Open Graph (Facebook, LinkedIn, WhatsApp, …) -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Schichtübergabe" />
-    <meta property="og:title" content="Schichtübergabe für mehrsprachige Werkstätten" />
+    <meta property="og:site_name" content="Zertifikats-Tracker" />
+    <meta
+      property="og:title"
+      content="Zertifikats-Tracker — Fristen im Griff, bevor sie ablaufen"
+    />
     <meta
       property="og:description"
-      content="Digitale Schichtübergabe für mehrsprachige Werkstätten — jeder schreibt in seiner Sprache, jeder liest in seiner."
+      content="Ablaufende Zertifikate und Lizenzen automatisch im Blick. Erinnerungen 90, 60, 30, 14 und 7 Tage vor Fristende."
     />
     <meta property="og:url" content="https://saaslyde.org/" />
     <meta property="og:image" content="https://saaslyde.org/assets/og.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta
-      property="og:image:alt"
-      content="Schichtübergabe — digitales Übergabe-Heft für mehrsprachige Werkstätten"
-    />
     <meta property="og:locale" content="de_DE" />
-    <meta property="og:locale:alternate" content="en_US" />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Schichtübergabe für mehrsprachige Werkstätten" />
+    <meta name="twitter:title" content="Zertifikats-Tracker — Fristen im Griff" />
     <meta
       name="twitter:description"
-      content="Jeder schreibt in seiner Sprache, jeder liest in seiner. DSGVO-konform, kein Setup."
+      content="Ablaufende Zertifikate automatisch im Blick. Erinnerungen 90/60/30/14/7 Tage vor Fristende."
     />
     <meta name="twitter:image" content="https://saaslyde.org/assets/og.png" />
-    <meta
-      name="twitter:image:alt"
-      content="Schichtübergabe — digitales Übergabe-Heft für mehrsprachige Werkstätten"
-    />
 
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231E3A5F'/%3E%3Cpath d='M8 11h16M8 16h16M8 21h10' stroke='%23fff' stroke-width='2.5' stroke-linecap='square'/%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231f5d4c'/%3E%3Cpath d='M9 16l5 5 9-11' stroke='%23f4f1e9' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="css/style.css?v=6" />
-
     <!--
-      Strukturierte Daten — hilft Google das Produkt als SaaS einzuordnen
-      und gibt der Marke eine Organization-Karte.
+      Plex selbst gehostet (siehe assets/fonts/). Preload nur des
+      kritischen Body-Cuts, um den Render nicht zu blockieren.
     -->
+    <link
+      rel="preload"
+      href="assets/fonts/IBMPlexSans-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/IBMPlexSerif-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="css/style.css?v=1" />
+
+    <!-- Strukturierte Daten: Compliance-Tool als SoftwareApplication. -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "https://saaslyde.org/#organization",
-          "name": "Schichtübergabe",
-          "url": "https://saaslyde.org/",
-          "email": "saaslyde@zohomail.eu",
-          "logo": "https://saaslyde.org/assets/og.png"
-        },
-        {
-          "@type": "SoftwareApplication",
-          "name": "Schichtübergabe",
-          "description": "Digitale Schichtübergabe für mehrsprachige Werkstätten. Strukturierte Vorlagen, automatische Übersetzung, Quittierung und volle Historie.",
-          "url": "https://saaslyde.org/",
-          "applicationCategory": "BusinessApplication",
-          "operatingSystem": "Web",
-          "inLanguage": ["de", "en"],
-          "publisher": { "@id": "https://saaslyde.org/#organization" },
-          "offers": {
-            "@type": "Offer",
-            "price": "39",
-            "priceCurrency": "EUR",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "price": "39",
-              "priceCurrency": "EUR",
-              "referenceQuantity": {
-                "@type": "QuantitativeValue",
-                "value": 1,
-                "unitCode": "MON"
-              }
-            }
-          }
-        }
-      ]
+      "@type": "SoftwareApplication",
+      "name": "Zertifikats-Tracker",
+      "description": "Software zur Verwaltung ablaufender Zertifikate, Lizenzen und Schulungsnachweise von Mitarbeitern. Erinnert automatisch 90/60/30/14/7 Tage vor Ablauf.",
+      "url": "https://saaslyde.org/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "de",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/PreOrder"
+      }
     }
     </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
-    <!--
-      Sprach-Toggle (Spec: oben rechts fixed, DE | EN als Link auf
-      index.en.html). Im Redesign über dunklem Hero → heller Glass-Look.
-    -->
-    <div class="lang-toggle" role="navigation" aria-label="Sprache">
-      <a href="index.html" aria-current="page" class="lang-active">DE</a>
-      <span aria-hidden="true">|</span>
-      <a href="index.en.html">EN</a>
-    </div>
-
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="#top" aria-label="Schichtübergabe — Startseite">
-          <svg
-            class="brand-mark"
-            width="32"
-            height="32"
-            viewBox="0 0 32 32"
-            aria-hidden="true"
-          >
-            <rect width="32" height="32" rx="6" fill="currentColor" />
-            <path
-              d="M8 11h16M8 16h16M8 21h10"
-              stroke="#fff"
-              stroke-width="2.5"
-              stroke-linecap="square"
-            />
-          </svg>
-          <span class="brand-name">Schichtübergabe</span>
+        <a class="brand" href="#top" aria-label="Zertifikats-Tracker — Startseite">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 32 32">
+              <path
+                d="M9 16l5 5 9-11"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                fill="none"
+              />
+            </svg>
+          </span>
+          <span class="brand-name">Zertifikats-Tracker</span>
         </a>
+        <span class="header-meta">Compliance-Tool für Betriebe</span>
       </div>
     </header>
 
     <main id="main">
-      <!-- 1. Hero -->
+      <!-- HERO -->
       <section class="hero" id="top">
         <div class="container hero-inner">
-          <div class="hero-copy">
-            <span class="hero-eyebrow">Beta · Sommer 2026</span>
-            <h1>
-              Schichtübergabe für
-              <span class="grad">mehrsprachige</span> Werkstätten.
-            </h1>
-            <p class="hero-lede">
-              Schluss mit Zettelwirtschaft. Jeder schreibt in seiner Sprache,
-              jeder liest in seiner.
-            </p>
-            <div class="hero-cta-row">
-              <a class="btn btn-on-dark" href="#warteliste">
-                Auf die Warteliste
-                <span class="btn-arrow" aria-hidden="true">→</span>
-              </a>
-              <a class="btn btn-ghost-dark" href="#loesung">
-                Wie's funktioniert
-              </a>
-            </div>
-            <ul class="hero-meta">
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                DSGVO-konform
-              </li>
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Keine Installation
-              </li>
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                In Minuten startklar
-              </li>
-            </ul>
-          </div>
-
-          <!--
-            CSS-Mockup einer Übergabe-Karte. Zeigt PL/TR/DE-Notizen mit
-            Übersetzung. Wird ab 920px eingeblendet, darunter aus
-            Platzgründen ausgeblendet.
-          -->
-          <div class="hero-visual" aria-hidden="true">
-            <article class="mock-card">
-              <header class="mock-head">
-                <div>
-                  <div class="mock-title">CNC-Drehbank 3</div>
-                  <div class="mock-sub">Frühschicht → Spätschicht · 14:00</div>
-                </div>
-                <span class="mock-status">Offen</span>
-              </header>
-
-              <ul class="mock-list">
-                <li class="mock-item">
-                  <span class="mock-flag mock-flag-pl" aria-label="Polnisch"></span>
-                  <div>
-                    <div class="mock-orig">„Materiał kończy się – zamówić nowy"</div>
-                    <div class="mock-trans">Material geht aus — bitte neu bestellen</div>
-                  </div>
-                </li>
-                <li class="mock-item">
-                  <span class="mock-flag mock-flag-tr" aria-label="Türkisch"></span>
-                  <div>
-                    <div class="mock-orig">„T15 takımı körelmiş, değiştirildi"</div>
-                    <div class="mock-trans">Werkzeug T15 stumpf, wurde getauscht</div>
-                  </div>
-                </li>
-                <li class="mock-item">
-                  <span class="mock-flag mock-flag-de" aria-label="Deutsch"></span>
-                  <div>
-                    <div class="mock-trans">Kühlmittel-Stand 60 %, beim nächsten Wechsel nachfüllen</div>
-                  </div>
-                </li>
-              </ul>
-
-              <footer class="mock-foot">
-                <span>3 Punkte · 1 quittierungspflichtig</span>
-                <span class="mock-ack">
-                  <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  Übernahme: M. Kowalski
-                </span>
-              </footer>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- 2. Problem (Bento) -->
-      <section class="section section-alt" id="problem">
-        <div class="container">
-          <header class="section-head">
-            <span class="eyebrow">Das Problem</span>
-            <h2>Was am Schichtwechsel jeden Tag schiefgeht.</h2>
-            <p>
-              Zettelwirtschaft, Sprachbarrieren und Werkzeug-Chaos — Punkte,
-              die Zeit, Material und Nerven kosten.
-            </p>
-          </header>
-
-          <ul class="bento">
-            <!-- Hero-Bento-Card (groß, dunkel) -->
-            <li class="bento-item bento-item-feature">
-              <span class="card-icon" aria-hidden="true">
-                <svg width="30" height="30" viewBox="0 0 24 24">
-                  <path
-                    d="M3 5h10v8H7l-4 4V5zM11 11h10v8h-4l-3 3v-3"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                    stroke-linejoin="miter"
-                  />
-                </svg>
-              </span>
-              <h3>Sprachbarrieren kosten am meisten</h3>
-              <p>
-                Polnisch, Türkisch, Rumänisch, Deutsch — geschrieben wird,
-                was geht. Verstanden wird, was übrig bleibt. Aus jeder
-                Übergabe wird ein Stille-Post-Spiel.
-              </p>
-            </li>
-
-            <li class="bento-item">
-              <span class="card-icon" aria-hidden="true">
-                <svg width="26" height="26" viewBox="0 0 24 24">
-                  <path
-                    d="M6 3h9l4 4v14H6z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                    stroke-linejoin="miter"
-                  />
-                  <path d="M15 3v4h4" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                  <path d="M9 12h6M9 16h6" stroke="currentColor" stroke-width="1.6"/>
-                </svg>
-              </span>
-              <h3>Zettel verschwinden</h3>
-              <p>
-                Notizen liegen unter dem Schraubstock, im Spind oder im
-                Mülleimer. Die nächste Schicht fängt blind an.
-              </p>
-            </li>
-
-            <li class="bento-item">
-              <span class="card-icon" aria-hidden="true">
-                <svg width="26" height="26" viewBox="0 0 24 24">
-                  <path
-                    d="M14 4l-2 2 4 4 2-2-4-4zM3 21l8-8M11 13l3-3"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                    stroke-linejoin="miter"
-                  />
-                </svg>
-              </span>
-              <h3>Werkzeug-Chaos</h3>
-              <p>
-                Wer hat den Drehmomentschlüssel? Welche Maschine läuft noch?
-                Die halbe Schicht geht für Suchen drauf.
-              </p>
-            </li>
-
-            <li class="bento-item">
-              <span class="card-icon" aria-hidden="true">
-                <svg width="26" height="26" viewBox="0 0 24 24">
-                  <path
-                    d="M4 5h7a3 3 0 013 3v12a3 3 0 00-3-3H4V5zM20 5h-7a3 3 0 00-3 3v12a3 3 0 013-3h7V5z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                    stroke-linejoin="miter"
-                  />
-                </svg>
-              </span>
-              <h3>Wissen geht verloren</h3>
-              <p>
-                Was gestern auffiel, weiß heute keiner mehr. Probleme tauchen
-                wieder auf — immer wieder. Die Doku stirbt mit dem Feierabend.
-              </p>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- 3. Lösung — nummerierte Feature-Karten -->
-      <section class="section" id="loesung">
-        <div class="container">
-          <header class="section-head">
-            <span class="eyebrow">Die Lösung</span>
-            <h2>Ein digitales Übergabe-Heft, das nichts vergisst.</h2>
-            <p>
-              Sechs Funktionen, die genau das tun, was in der Halle wirklich
-              gebraucht wird — mehr nicht.
-            </p>
-          </header>
-
-          <ul class="feature-grid">
-            <li class="feature">
-              <span class="feature-num" aria-hidden="true">01</span>
-              <span class="card-icon" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                  <path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                </svg>
-              </span>
-              <h3>Automatische Übersetzung</h3>
-              <p>
-                Jeder schreibt in seiner Sprache. Kollegen lesen in ihrer.
-                DE, EN, PL, TR, RO, RU und mehr.
-              </p>
-            </li>
-
-            <li class="feature">
-              <span class="feature-num" aria-hidden="true">02</span>
-              <span class="card-icon" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24">
-                  <path d="M5 4h14v16H5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="miter"/>
-                  <path d="M8 9h8M8 13h8M8 17h5" stroke="currentColor" stroke-width="1.6"/>
-                </svg>
-              </span>
-              <h3>Strukturierte Vorlagen</h3>
-              <p>
-                Maschine, Auftrag, Werkzeug, offene Punkte. Vorgegebene
-                Felder statt freier Prosa.
-              </p>
-            </li>
-
-            <li class="feature">
-              <span class="feature-num" aria-hidden="true">03</span>
-              <span class="card-icon" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24">
-                  <path d="M5 12l4 4 10-10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
-                </svg>
-              </span>
-              <h3>Quittierung</h3>
-              <p>
-                Wer die Schicht übernimmt, bestätigt jeden Punkt. Nichts
-                geht unter, Verantwortung ist klar.
-              </p>
-            </li>
-
-            <li class="feature">
-              <span class="feature-num" aria-hidden="true">04</span>
-              <span class="card-icon" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                  <path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/>
-                </svg>
-              </span>
-              <h3>Volle Historie</h3>
-              <p>
-                Jede Übergabe bleibt suchbar. Wiederkehrende Probleme werden
-                sichtbar, statt erneut zu passieren.
-              </p>
-            </li>
-
-            <li class="feature">
-              <span class="feature-num" aria-hidden="true">05</span>
-              <span class="card-icon" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24">
-                  <rect x="4" y="5" width="16" height="12" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                  <path d="M4 9h16M8 13h4" stroke="currentColor" stroke-width="1.6"/>
-                </svg>
-              </span>
-              <h3>Werkzeug-Übersicht</h3>
-              <p>
-                Wer hat was, welche Maschine läuft, was steht still — auf
-                einen Blick statt durch die Halle zu rennen.
-              </p>
-            </li>
-
-            <li class="feature">
-              <span class="feature-num" aria-hidden="true">06</span>
-              <span class="card-icon" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24">
-                  <rect x="6" y="3" width="12" height="18" rx="1" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                  <path d="M10 18h4" stroke="currentColor" stroke-width="1.6"/>
-                </svg>
-              </span>
-              <h3>Auf jedem Gerät</h3>
-              <p>
-                Handy, Tablet, Werkstatt-PC. Im Browser, ohne Installation,
-                ohne IT-Abteilung.
-              </p>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- 4. Über (Zitat-Look) -->
-      <section class="section section-alt" id="ueber">
-        <div class="container narrow">
-          <header class="section-head" style="margin-bottom: 24px;">
-            <span class="eyebrow">Über</span>
-            <h2>Wer dahinter steckt.</h2>
-          </header>
-
-          <blockquote class="about-quote">
-            Acht Jahre habe ich selbst an der Maschine gestanden. Das Problem
-            mit verschwundenen Zetteln und unverstandenen Übergaben kenne
-            ich aus erster Hand. Genau deswegen baue ich Schichtübergabe —
-            so, wie's in der Halle wirklich gebraucht wird.
-          </blockquote>
-          <div class="about-byline">
-            <span class="about-avatar" aria-hidden="true">M</span>
-            Zerspaner, jetzt Gründer · 8 Jahre Werkstatt + IT
-          </div>
-        </div>
-      </section>
-
-      <!-- 5. Pricing -->
-      <section class="section" id="pricing">
-        <div class="container narrow">
-          <div class="pricing-card">
-            <span class="eyebrow">Preis</span>
-            <h2>Fair, ohne Knebelvertrag.</h2>
-            <p class="pricing-big">
-              <span class="currency">€</span>39
-              <span class="per">/ Monat · pro Standort</span>
-            </p>
-            <p class="pricing-sub">
-              <strong>50 % Rabatt</strong> für frühe Nutzer im ersten Jahr.
-            </p>
-            <a class="btn btn-on-dark" href="#warteliste">
-              Auf die Warteliste
+          <p class="eyebrow">Beta · Warteliste offen</p>
+          <h1>
+            Ein vergessenes Zertifikat&nbsp;—
+            <span class="strike">Arbeitsverbot</span>,
+            <span class="strike">Haftung</span>,
+            <span class="strike">Stillstand</span>.
+          </h1>
+          <p class="lede">
+            Zertifikats-Tracker behält Lizenzen, Befähigungen und
+            Pflichtschulungen deiner Mitarbeiter im Blick. 90, 60, 30,
+            14 und 7 Tage vor Ablauf gibt's automatisch Bescheid —
+            an Personalabteilung und Mitarbeiter. Excel-Liste raus,
+            Übersicht rein.
+          </p>
+          <p class="hero-cta">
+            <a class="btn btn-primary" href="#warteliste">
+              Zum Test anmelden
               <span class="btn-arrow" aria-hidden="true">→</span>
             </a>
-          </div>
+          </p>
         </div>
       </section>
 
-      <!-- 6. Warteliste -->
-      <section class="section section-alt" id="warteliste">
+      <!-- PRODUKT-MOCKUP -->
+      <section class="section section-mockup" aria-label="Produkt-Vorschau">
+        <div class="container">
+          <h2 class="section-title">
+            Eine Übersicht. Drei Stati. Keine Überraschungen.
+          </h2>
+
+          <ul class="cert-list" aria-label="Beispiel-Zertifikate (Vorschau)">
+            <li class="cert-card cert-ok">
+              <header class="cert-head">
+                <div>
+                  <div class="cert-title">Staplerschein G25</div>
+                  <div class="cert-person">Markus K. · Personal-Nr. 2034</div>
+                </div>
+                <span class="status status-ok">Gültig</span>
+              </header>
+              <div class="cert-expiry">
+                Läuft ab am <span class="mono">2027-03-15</span>
+                <span class="cert-remaining mono">in 412 Tagen</span>
+              </div>
+              <ol class="reminder-bar" aria-label="Erinnerungen vor Ablauf">
+                <li class="r-mark">
+                  <span class="r-dot"></span><span class="r-label mono">90</span>
+                </li>
+                <li class="r-mark">
+                  <span class="r-dot"></span><span class="r-label mono">60</span>
+                </li>
+                <li class="r-mark">
+                  <span class="r-dot"></span><span class="r-label mono">30</span>
+                </li>
+                <li class="r-mark">
+                  <span class="r-dot"></span><span class="r-label mono">14</span>
+                </li>
+                <li class="r-mark">
+                  <span class="r-dot"></span><span class="r-label mono">7</span>
+                </li>
+              </ol>
+            </li>
+
+            <li class="cert-card cert-soon">
+              <header class="cert-head">
+                <div>
+                  <div class="cert-title">FFP3-Maskenschulung</div>
+                  <div class="cert-person">Anna L. · Personal-Nr. 1218</div>
+                </div>
+                <span class="status status-soon">Läuft bald ab</span>
+              </header>
+              <div class="cert-expiry">
+                Läuft ab am <span class="mono">2026-06-19</span>
+                <span class="cert-remaining mono">in 22 Tagen</span>
+              </div>
+              <ol class="reminder-bar" aria-label="Erinnerungen vor Ablauf">
+                <li class="r-mark r-done">
+                  <span class="r-dot"></span><span class="r-label mono">90</span>
+                </li>
+                <li class="r-mark r-done">
+                  <span class="r-dot"></span><span class="r-label mono">60</span>
+                </li>
+                <li class="r-mark r-active">
+                  <span class="r-dot"></span><span class="r-label mono">30</span>
+                </li>
+                <li class="r-mark">
+                  <span class="r-dot"></span><span class="r-label mono">14</span>
+                </li>
+                <li class="r-mark">
+                  <span class="r-dot"></span><span class="r-label mono">7</span>
+                </li>
+              </ol>
+            </li>
+
+            <li class="cert-card cert-crit">
+              <header class="cert-head">
+                <div>
+                  <div class="cert-title">Erste-Hilfe-Ausbildung</div>
+                  <div class="cert-person">Tomek W. · Personal-Nr. 0871</div>
+                </div>
+                <span class="status status-crit">Kritisch</span>
+              </header>
+              <div class="cert-expiry">
+                Läuft ab am <span class="mono">2026-06-01</span>
+                <span class="cert-remaining mono">in 4 Tagen</span>
+              </div>
+              <ol class="reminder-bar" aria-label="Erinnerungen vor Ablauf">
+                <li class="r-mark r-done">
+                  <span class="r-dot"></span><span class="r-label mono">90</span>
+                </li>
+                <li class="r-mark r-done">
+                  <span class="r-dot"></span><span class="r-label mono">60</span>
+                </li>
+                <li class="r-mark r-done">
+                  <span class="r-dot"></span><span class="r-label mono">30</span>
+                </li>
+                <li class="r-mark r-done">
+                  <span class="r-dot"></span><span class="r-label mono">14</span>
+                </li>
+                <li class="r-mark r-active">
+                  <span class="r-dot"></span><span class="r-label mono">7</span>
+                </li>
+              </ol>
+            </li>
+          </ul>
+
+          <p class="mockup-note">
+            Beispiel-Daten. Echte Übersicht zeigt alle Zertifikate deiner
+            Belegschaft, filterbar nach Bereich, Person und Frist.
+          </p>
+        </div>
+      </section>
+
+      <!-- NUTZEN -->
+      <section class="section section-benefits" id="nutzen">
+        <div class="container">
+          <ul class="benefit-list">
+            <li class="benefit">
+              <span class="benefit-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24">
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="9"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  />
+                  <path
+                    d="M12 7v5l3 2"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linecap="square"
+                  />
+                </svg>
+              </span>
+              <h3>Fünf Erinnerungen, automatisch</h3>
+              <p>
+                90, 60, 30, 14 und 7 Tage vor Ablauf — per E-Mail an
+                Personalabteilung und Mitarbeiter. Keine Frist rutscht
+                durch.
+              </p>
+            </li>
+            <li class="benefit">
+              <span class="benefit-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24">
+                  <path
+                    d="M4 5h16v14H4zM4 9h16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linejoin="miter"
+                  />
+                  <path d="M8 13h4M8 16h6" stroke="currentColor" stroke-width="1.6"/>
+                </svg>
+              </span>
+              <h3>Eine Übersicht für alle</h3>
+              <p>
+                Schluss mit verstreuten Excel-Listen. Personen, Bereiche
+                und Zertifikate auf einer Seite — durchsuchbar, filterbar,
+                exportierbar.
+              </p>
+            </li>
+            <li class="benefit">
+              <span class="benefit-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24">
+                  <path
+                    d="M12 3l8 4v5c0 4-3.5 7-8 9-4.5-2-8-5-8-9V7l8-4z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M9 12l2 2 4-5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+              <h3>Audit-Nachweis auf Knopfdruck</h3>
+              <p>
+                Wer wann was nachgewiesen hat — als PDF-Report exportierbar.
+                Bei Prüfungen, Audits oder Versicherungsfragen
+                vorbereitet.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- WARTELISTE -->
+      <section class="section section-waitlist" id="warteliste">
         <div class="container narrow">
           <div class="waitlist-card">
-            <header class="section-head">
-              <span class="eyebrow">Warteliste</span>
-              <h2>Trag dich ein.</h2>
-              <p>
-                Erste 20 Kunden: <strong>50 % Rabatt</strong> + persönliches
-                Onboarding.
-              </p>
-            </header>
+            <h2 class="section-title">Zum Test anmelden.</h2>
+            <p class="waitlist-sub">
+              Wir öffnen die Beta für die ersten Betriebe.
+              Trag deine E-Mail-Adresse ein — sobald wir bereit sind,
+              meldest du dich an.
+            </p>
 
             <!--
-              FormSubmit-Endpoint: Anmeldungen gehen an saaslyde@zohomail.eu.
-              Erste Übermittlung triggert eine einmalige Bestätigungs-Mail
-              an die Zieladresse — nach Klick auf den Bestätigungslink
-              werden alle weiteren Submissions still in die Mailbox
-              geliefert (kein Account nötig).
-              Wer die Mail-Adresse aus dem HTML raushalten will, kann
-              nach der Verifizierung die gehashte Alias-URL nutzen, die
-              FormSubmit zurückgibt, und sie hier ersetzen.
+              Formspree-Endpoint: vor Deploy in `action` die ID
+              "DEINE_FORMULAR_ID" durch die echte Formspree-Form-ID
+              ersetzen (siehe README). Solange der Platzhalter
+              drinsteht, blockt main.js den Submit und zeigt eine
+              sprechende Fehlermeldung statt einen kaputten POST.
             -->
             <form
               id="waitlist-form"
               class="waitlist-form"
-              action="https://formsubmit.co/ajax/c7cb21cb88e011be1240561a926fe498"
+              action="https://formspree.io/f/DEINE_FORMULAR_ID"
               method="post"
               novalidate
             >
-              <input type="hidden" name="_subject" value="Neue Warteliste-Anmeldung — Schichtübergabe" />
-              <input type="hidden" name="_template" value="table" />
-              <input type="hidden" name="_captcha" value="false" />
-              <!-- Honeypot gegen Bots; echte Nutzer füllen es nicht aus -->
-              <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
-
               <label for="email" class="sr-only">E-Mail-Adresse</label>
               <input
                 id="email"
@@ -517,79 +354,56 @@
                 type="email"
                 required
                 autocomplete="email"
-                placeholder="deine@email.de"
+                placeholder="vorname.nachname@firma.de"
               />
               <button type="submit" class="btn btn-primary">
-                Eintragen
+                Zum Test anmelden
                 <span class="btn-arrow" aria-hidden="true">→</span>
               </button>
-              <p class="form-message form-error" id="waitlist-error" hidden role="alert"></p>
+              <p
+                class="form-message form-error"
+                id="waitlist-error"
+                hidden
+                role="alert"
+              ></p>
             </form>
 
-            <div class="form-message form-success" id="waitlist-success" hidden role="status">
-              <strong>Danke!</strong> Du stehst auf der Liste. Wir melden uns,
-              sobald es losgeht.
+            <div
+              class="form-message form-success"
+              id="waitlist-success"
+              hidden
+              role="status"
+            >
+              <strong>Danke.</strong> Du stehst auf der Liste —
+              wir melden uns, sobald die Beta öffnet.
             </div>
-
-            <!--
-              Live-Zähler der Anmeldungen. Wird per JS aus
-              abacus.jasoncameron.dev gefüllt (siehe main.js und
-              datenschutz.html). Hidden, bis der erste GET zurück ist —
-              wenn der Dienst down ist, bleibt die Zeile weg.
-            -->
-            <p class="waitlist-count" id="waitlist-count" hidden></p>
-
           </div>
+
+          <p class="waitlist-foot">
+            Wir senden ausschließlich produktbezogene Nachrichten zu
+            Beta-Start und Onboarding. Kein Newsletter, kein Tracking.
+          </p>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container">
-        <div class="footer-inner">
-          <div>
-            <a class="brand" href="#top">
-              <svg
-                class="brand-mark"
-                width="28"
-                height="28"
-                viewBox="0 0 32 32"
-                aria-hidden="true"
-              >
-                <rect width="32" height="32" rx="6" fill="currentColor" />
-                <path
-                  d="M8 11h16M8 16h16M8 21h10"
-                  stroke="#fff"
-                  stroke-width="2.5"
-                  stroke-linecap="square"
-                />
-              </svg>
-              <span class="brand-name">Schichtübergabe</span>
-            </a>
-            <p class="footer-tagline">
-              Übergaben, die nichts vergessen — in jeder Sprache.
-            </p>
-          </div>
-
-          <nav aria-label="Footer">
-            <ul class="footer-links">
-              <li><a href="impressum.html">Impressum</a></li>
-              <li><a href="datenschutz.html">Datenschutz</a></li>
-              <li>
-                <!-- Platzhalter; vor Deploy auf echte Kontaktadresse anpassen. -->
-                <a href="mailto:saaslyde@zohomail.eu">Kontakt</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-
-        <div class="footer-meta">
-          <p>&copy; <span id="footer-year">2026</span> Schichtübergabe</p>
-          <p>Hosted on GitHub Pages · Made in Germany</p>
-        </div>
+      <div class="container footer-inner">
+        <p class="footer-copy">
+          &copy; <span id="footer-year">2026</span> Zertifikats-Tracker
+        </p>
+        <nav aria-label="Footer">
+          <ul class="footer-links">
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li>
+              <a href="mailto:saaslyde@zohomail.eu">Kontakt</a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </footer>
 
-    <script src="js/main.js?v=6" defer></script>
+    <script src="js/main.js?v=1" defer></script>
   </body>
 </html>

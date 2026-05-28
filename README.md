@@ -1,49 +1,46 @@
-# Schichtübergabe — Landing Page
+# Zertifikats-Tracker — Landing Page
 
-Statische Landing Page für **Schichtübergabe** — ein Übergabe-Tool für
-mehrsprachige Werkstätten. Reines Vanilla HTML/CSS/JS, keine
+Statische Landing Page für **Zertifikats-Tracker** — ein Compliance-Tool,
+mit dem Betriebe ablaufende Zertifikate, Lizenzen und Pflichtschulungen
+ihrer Mitarbeiter verwalten. Reines Vanilla HTML/CSS/JS, keine
 Abhängigkeiten, kein Build-Step, direkt GitHub-Pages-ready.
 
 ## Dateien
 
 ```
-index.html         Deutsche Hauptseite
-index.en.html      Englische Version (gleiche Struktur)
+index.html         Landing Page (Deutsch, Single Page)
 impressum.html     Impressum mit TODO-Platzhaltern
-datenschutz.html   Datenschutz (DSGVO, inkl. FormSubmit-Hinweis)
-css/style.css      Stylesheet
-js/main.js         Sprach-Toggle (HTML-Link) + Form-Handling
-assets/            Bilder/Icons (aktuell leer)
+datenschutz.html   Datenschutz (DSGVO, inkl. Formspree-Hinweis)
+css/style.css      Stylesheet (mit @font-face für IBM Plex)
+js/main.js         Form-Handler + Footer-Jahr
+assets/fonts/      IBM Plex Serif / Sans / Mono (WOFF2, OFL-lizenziert)
+assets/og.png      Open-Graph-Bild (1200×630)
+sitemap.xml        Sitemap
+robots.txt         Robots
 ```
 
 ## Setup
 
-### 1. Formular-Empfänger einrichten (FormSubmit)
+### 1. Formspree-Form-ID einsetzen
 
-Das Warteliste-Formular schickt Anmeldungen über
-[FormSubmit](https://formsubmit.co) an
-`saaslyde@zohomail.eu`. Kein Account nötig — beim ersten Submit nach
-dem Go-Live kommt einmalig eine Bestätigungs-Mail von FormSubmit an
-diese Adresse. Den Link in der Mail klicken, danach laufen alle
-Anmeldungen still in die Inbox.
-
-Wenn die Empfänger-Adresse geändert wird: in `index.html` und
-`index.en.html` jeweils im `<form action="...">` ersetzen. Beispiel:
+Auf [formspree.io](https://formspree.io) ein neues Formular anlegen und
+die Endpoint-URL kopieren (Format: `https://formspree.io/f/abcd1234`).
+Anschließend in `index.html` den Platzhalter ersetzen:
 
 ```bash
-sed -i 's|saaslyde@zohomail.eu|neue@adresse.example|g' \
-    index.html index.en.html
+sed -i 's|DEINE_FORMULAR_ID|abcd1234|g' index.html
 ```
 
-**Optional:** Nach der Verifizierung bietet FormSubmit eine gehashte
-Alias-URL der Form `https://formsubmit.co/el/abcdef` an. Diese statt
-der Klartext-E-Mail einsetzen, damit die Adresse nicht im öffentlichen
-HTML steht.
+Alternativ im Editor `DEINE_FORMULAR_ID` durch deine echte ID austauschen.
+
+Solange der Platzhalter drinsteht, blockt `js/main.js` den Submit und
+zeigt eine sprechende Fehlermeldung — verhindert kaputte POSTs während
+der Entwicklung.
 
 ### 2. Kontakt-E-Mail anpassen
 
-Die `mailto:`-Adressen (`kontakt@schichtuebergabe.example`) in allen
-HTML-Dateien gegen die echte Kontaktadresse austauschen.
+Die `mailto:`-Adressen (`saaslyde@zohomail.eu`) in allen HTML-Dateien
+gegen die echte Kontaktadresse austauschen, falls nötig.
 
 ### 3. Impressum & Datenschutz ausfüllen
 
@@ -51,34 +48,34 @@ In `impressum.html` und `datenschutz.html` sind alle anzupassenden
 Stellen mit `<!-- TODO -->` markiert. Vor Veröffentlichung mit echten
 Daten füllen und ggf. juristisch prüfen lassen.
 
-### 4. GitHub Pages aktivieren
+### 4. GitHub Pages
 
-1. Repository auf GitHub → **Settings → Pages**
-2. **Source**: `Deploy from a branch`
-3. **Branch**: `main` / Root (`/`)
-4. **Save** — nach 1–2 Minuten ist die Seite unter
-   `https://<user>.github.io/<repo>/` erreichbar.
+Repo → **Settings → Pages** → Source `main` / Root. Die Seite ist dann
+unter `https://<user>.github.io/<repo>/` bzw. `https://saaslyde.org/`
+(Custom Domain) erreichbar.
 
 ## Lokal testen
 
-Kein Build nötig — einfach `index.html` im Browser öffnen oder einen
-beliebigen statischen Server starten:
+Kein Build nötig — beliebigen statischen Server starten:
 
 ```bash
 python3 -m http.server 8000
 # dann http://localhost:8000 aufrufen
 ```
 
+Oder `index.html` direkt im Browser öffnen.
+
 ## Was die Seite (nicht) tut
 
-- **Keine** Cookies, **kein** Tracking, **keine** Analyse-Tools —
-  daher auch kein Cookie-Banner.
-- **Keine** externen Schriften, Skripte oder CDN-Requests.
-- Wartelisten-Formular geht an FormSubmit (Auftragsverarbeiter,
-  in der Datenschutzerklärung erwähnt).
+- **Keine** Cookies, **kein** Tracking, **keine** Analyse-Tools — daher
+  auch kein Cookie-Banner.
+- **Keine** externen Schriften, Skripte oder CDN-Requests im Live-Betrieb.
+  IBM Plex liegt lokal in `assets/fonts/`.
+- Wartelisten-Formular geht an Formspree (Auftragsverarbeiter, in der
+  Datenschutzerklärung erwähnt).
 
-## Lighthouse
+## Fonts
 
-Ziel: 95+ in allen Kategorien. Wenn die Werte später unter 95 fallen,
-fast immer durch ein Bild oder Skript verursacht, das ohne `loading="lazy"`
-bzw. ohne `defer` eingebunden wurde.
+IBM Plex Serif/Sans/Mono in `assets/fonts/`, OFL-lizenziert (Open Font
+License). Quelle: <https://github.com/IBM/plex>. Insgesamt sechs WOFF2,
+~380 KB.

@@ -27,10 +27,10 @@
   var emailInput = form.querySelector('input[type="email"]');
 
   var msgs = {
-    invalid: "Bitte eine gültige E-Mail-Adresse eingeben.",
+    invalid: "Please enter a valid email address.",
     placeholder:
-      "Das Formular ist noch nicht konfiguriert. Bitte direkt per E-Mail melden.",
-    network: "Etwas ist schiefgelaufen. Bitte erneut versuchen.",
+      "The form isn't configured yet. Please contact us directly by email.",
+    network: "Something went wrong. Please try again.",
   };
 
   function showError(text) {
